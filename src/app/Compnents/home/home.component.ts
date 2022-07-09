@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
       }
 
 
-
     })
 
     this._ProductsService.addproduct(this.product)
