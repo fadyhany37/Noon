@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private _ProductsService: ProductsService) {}
 
+  
   ngOnInit(): void {
     this._ProductsService.getproducts().subscribe((res) => {
       for (let i = 0; i < res.length; i++) {
