@@ -10,8 +10,8 @@
             <a class="nav-link text-primary nav-cat-text"  href="#">ALL CATEGORIES<i class="fa fa fa-angle-down ps-4 "></i></a>
 
           </li>
-          <li class="nav-item " >
-            <a class="nav-link "  aria-current="page" href="#"  (mouseover)="showmenu($event)"  (mouseleave)="hidemenu()">ELECTRONICS</a>
+          <li class="nav-item" >
+            <a class="nav-link "  aria-current="page" href="#"(mouseover)="showmenu($event)"  (mouseleave)="hidemenu()">ELECTRONICS</a>
           </li>
           <li  class="nav-item">
             <a class="nav-link " href="#"  (mouseover)="showmenu($event)"  (mouseleave)="hidemenu()">MOBILES</a>
@@ -46,7 +46,7 @@
 
 
   <!-- menu for All categories -->
-<div class="extened-menu h-100 "[hidden]="show" >
+<div class="extened-menu "[hidden]="show" >
   <div class="row gx-0 w-50 " (mouseover)="showfun()" (mouseleave)="hidefun()">
     <ul class="col-4 categories">
     <li class="list-group-item border-0"(mouseover)="changeCat($event)"  >Electronics</li>
@@ -81,7 +81,7 @@
   </div>
 
 <!-- menu for categories -->
- <div class="extened-menu h-100 " [hidden]="menu" >
+ <div class="extened-menu  " [hidden]="menu" >
   <div class="row gx-0 w-100 bg-white  "(mouseover)="showmenu($event)"  (mouseleave)="hidemenu()" >
 
   <ul class="col-3 col-md-2 details ">
@@ -122,3 +122,6 @@
 
   </div>
 
+
+
+  
