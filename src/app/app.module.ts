@@ -10,6 +10,7 @@ import { NavbarComponent } from './Compnents/navbar/navbar.component';
 import { CarouselComponentComponent } from './Compnents/carousel-component/carousel-component.component';
 import { FristSwiperComponent } from './Compnents/frist-swiper/frist-swiper.component';
 import { SwiperModule } from 'swiper/angular';
+import { FooterComponent } from './Compnents/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SwiperModule } from 'swiper/angular';
     NavbarComponent,
     CarouselComponentComponent,
     FristSwiperComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
