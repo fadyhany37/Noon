@@ -1,20 +1,37 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore} from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+  products:any[]=[]
+  constructor(private fireStore: FirebaseService) {
+    this.fireStore.getproducts().subscribe((products) => {
+      let prods: any = [];
+      for (let prod of products) {
+        prods.push({ id:prod.payload.doc.id,...prod.payload.doc.data()as object })
+      }
 
-  constructor(private store: AngularFirestore) { }
+      this.products = prods;
 
+    });
+   }
 
-  getproducts() {
-    return this.store.collection("Products").snapshotChanges();
-  }
-
-  addproduct(product:any)
+  getProductsByCategorey(cat:string)
   {
-    this.store.collection("Products").add(product);
+
+    return this.products.filter((p) => p.category == cat);;
+
   }
+
+
+
+
 }
+
+
+
+

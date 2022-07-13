@@ -1,0 +1,50 @@
+
+<swiper
+[slidesPerView]="1"
+[spaceBetween]="8"
+
+[navigation]="true"
+
+[breakpoints]="{
+  '@0.00': {
+    slidesPerView: 1,
+    spaceBetween: 10
+  },
+  '@0.75': {
+    slidesPerView: 2,
+    spaceBetween: 10
+  },
+  '@1.00': {
+    slidesPerView: 4,
+    spaceBetween: 10
+  },
+  '@1.50': {
+    slidesPerView: 6,
+    spaceBetween: 10
+  }
+}">
+ <ng-container *ngFor="let product of products">
+
+  <ng-template swiperSlide *ngIf="product.stock>0" >
+    <div  class="card border-0 rounded-0 position-relative " style="width: 15rem;">
+
+      <img [src]="product.thumbnail" class="rounded-0 m-0" style="width: 100%; height:200px; object-fit:fill;"  [alt]="product.description ">
+
+     <div class="card-body text-center ">
+        <p class="card-title my-3 ">{{product.description}}</p>
+        <h5 class="card-text "> <span>EGP</span> {{product.price}}.00</h5>
+        <p style="font-size: 12px;" *ngIf="product.discountPercentage>0"><span style="text-decoration-line: line-through;">EGP {{(product.price*(100+product.discountPercentage)/100)| number: '1.0-0'}} </span> <span class="fw-bolder ms-2" style="color:rgb(137, 225, 4)"> {{product.discountPercentage}}% OFF</span></p>
+        <div class="d-flex justify-content-between ">
+          <p class="yellow-badge ps-1">express</p>
+           <p style="font-size: 12px;" class="text-warning  fw-bold"> <i class="bi bi-star-fill text-warning "></i>{{product.rating}}</p>
+           </div>
+
+      </div>
+
+      <div *ngIf="product.rating>4.8" class="best-seller">
+         Best Seller
+      </div>
+    </div>
+  </ng-template>
+  </ng-container>
+</swiper>

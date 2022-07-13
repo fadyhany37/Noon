@@ -5,15 +5,13 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Compnents/home/home.component';
-import { NavbarComponent } from './Compnents/navbar/navbar.component';
-import { NavCategoriesComponent } from './Compnents/nav-categories/nav-categories.component';
-import { CarouselComponentComponent } from './Compnents/carousel-component/carousel-component.component';
-import { FristSwiperComponent } from './Compnents/frist-swiper/frist-swiper.component';
+import { HomeComponent } from './Compnents/pages/home/home.component';
+import { NavbarComponent } from './Compnents/compnents/navbar/navbar.component';
+import { NavCategoriesComponent } from './Compnents/compnents/nav-categories/nav-categories.component';
+import { CarouselComponentComponent } from './Compnents/compnents/carousel-component/carousel-component.component';
+import { FristSwiperComponent } from './Compnents/compnents/frist-swiper/frist-swiper.component';
 import { SwiperModule } from 'swiper/angular';
-
-@NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent, NavCategoriesComponent],
+import { ProductsSwiperComponent } from './Compnents/compnents/products-swiper/products-swiper.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +19,9 @@ import { SwiperModule } from 'swiper/angular';
     HomeComponent,
     NavbarComponent,
     CarouselComponentComponent,
+    NavCategoriesComponent,
     FristSwiperComponent,
+    ProductsSwiperComponent,
   ],
   imports: [
     BrowserModule,
