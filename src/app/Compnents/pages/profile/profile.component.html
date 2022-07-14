@@ -1,7 +1,33 @@
 <div class="profile">
   <div class="info">
-    <button class="btn btn-primary" (click)="addingFunction()">Add</button>
-    <button class="btn btn-primary" (click)="showFunction()">Show</button>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="editProfile" (click)="openRegisterForm()">
+          <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
+        </div>
+        <div class="col-md-6">
+          <div class="imgCon">
+            <img src="../../../../assets/avatar.jpg" class="img" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="d-flex flex-column h-100 justify-content-center infoContent"
+          >
+            <h2 class="mb-2">Hi, Alaa Ezzat</h2>
+            <h4 class="mb-2">Let's Manage Your Account</h4>
+            <div class="buttons">
+              <button class="btn me-2" (click)="addingFunction()">
+                Add Product
+              </button>
+              <button class="btn" (click)="showFunction()">
+                Show Products
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="userData">
     <div *ngIf="adding">

@@ -18,4 +18,7 @@ export class ProfileComponent implements OnInit {
   showFunction() {
     this.adding = false;
   }
+  openRegisterForm() {
+    /* open register form to edit user info */
+  }
 }
