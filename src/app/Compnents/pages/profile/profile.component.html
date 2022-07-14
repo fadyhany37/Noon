@@ -7,14 +7,14 @@
         </div>
         <div class="col-md-6">
           <div class="imgCon">
-            <img src="../../../../assets/avatar.jpg" class="img" />
+            <img [src]="user.image" class="img" />
           </div>
         </div>
         <div class="col-md-6">
           <div
             class="d-flex flex-column h-100 justify-content-center infoContent"
           >
-            <h2 class="mb-2">Hi, Alaa Ezzat</h2>
+            <h2 class="mb-2">Hi, {{ user.name }}</h2>
             <h4 class="mb-2">Let's Manage Your Account</h4>
             <div class="buttons">
               <button class="btn me-2" (click)="addingFunction()">
