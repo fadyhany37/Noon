@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { Iproduct } from '../Models/iproduct';
 import { FirebaseService } from './firebase.service';
 
 @Injectable({
@@ -24,6 +25,12 @@ export class ProductsService {
   {
 
     return this.products.filter((p) => p.category == cat);;
+
+  }
+  getProductsBySellerCode(code:number):Iproduct[]
+  {
+
+    return this.products.filter((p) => p.sellerCode == code);
 
   }
 

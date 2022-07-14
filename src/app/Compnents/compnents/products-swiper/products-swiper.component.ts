@@ -17,6 +17,7 @@ export class ProductsSwiperComponent implements OnInit ,OnChanges {
 
 
   @Input() products: any[] = [];
+  @Input() sellerCode!: number;
 
   constructor(private fireStore: FirebaseService) { }
 
@@ -28,8 +29,14 @@ export class ProductsSwiperComponent implements OnInit ,OnChanges {
  console.log("changed")
 
 
-
-
+  }
+  deleteProduct(pId: string) {
+    if (confirm("Delete this product ?")) {
+      this.fireStore.deleteproduct(pId);
+    }
+  }
+  updateProduct(pId: string) {
+    
   }
 
 }

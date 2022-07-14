@@ -1,14 +1,23 @@
-<div class="profile">
+<!-- <div class="profile w-100">
   <div class="info">
     <button class="btn btn-primary" (click)="addingFunction()">Add</button>
     <button class="btn btn-primary" (click)="showFunction()">Show</button>
   </div>
-  <div class="userData">
+  <div class="userData w-100">
     <div *ngIf="adding">
       <app-add-product></app-add-product>
     </div>
-    <div *ngIf="!adding">
-      <p>Showing</p>
+    <div class="w-100 bg-white" *ngIf="!adding">
+      <app-products-swiper   [products]="sellerProducts" [sellerCode]="sellerCode" ></app-products-swiper>
     </div>
+
+
   </div>
-</div>
+ </div> -->
+ <button class="btn btn-primary" (click)="showFunction()">Show</button>
+
+
+  <app-products-swiper class="w-100 bg-danger"   [products]="sellerProducts" ></app-products-swiper>
+
+
+
