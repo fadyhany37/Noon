@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { async } from 'rxjs';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ProductsService } from 'src/app/services/products.service';
 

@@ -61,31 +61,31 @@ export class FristSwiperComponent {
         src: './../../../assets/carousel2/12.png',
       },
       {
-        category: 'fragrances',
+        category: 'TVs',
         src: './../../../assets/carousel2/13.png',
       },
       {
-        category: 'fragrances',
+        category: 'electronics',
         src: './../../../assets/carousel2/14.png',
       },
       {
-        category: 'fragrances',
+        category: 'grocery',
         src: './../../../assets/carousel2/15.png',
       },
       {
-        category: 'fragrances',
+        category: 'health',
         src: './../../../assets/carousel2/16.png',
       },
       {
-        category: 'fragrances',
+        category: 'headphones',
         src: './../../../assets/carousel2/17.png',
       },
       {
-        category: 'fragrances',
+        category: 'laptops',
         src: './../../../assets/carousel2/18.png',
       },
       {
-        category: 'fragrances',
+        category: 'sports',
         src: './../../../assets/carousel2/19.png',
       },
       {
@@ -93,18 +93,9 @@ export class FristSwiperComponent {
         src: './../../../assets/carousel2/20.png',
       },
       {
-        category: 'fragrances',
+        category: 'appliances',
         src: './../../../assets/carousel2/21.png',
       },
     ];
   }
 }
-
-/*  this.images = ["./../../../assets/carousel2/1.png",
-    "./../../../assets/carousel2/2.png",
-    "./../../../assets/carousel2/3.png",
-    "./../../../assets/carousel2/9.png",
-    "./../../../assets/carousel2/5.png",
-  "./../../../assets/carousel2/8.png",
-"./../../../assets/carousel2/6.png",
-"./../../../assets/carousel2/7.png"] */

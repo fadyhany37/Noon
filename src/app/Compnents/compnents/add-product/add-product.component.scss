@@ -1,0 +1,18 @@
+.is-invalid{
+  border-left: 5px solid #F00;
+}
+.is-valid{
+  border-left: 5px solid #080;
+}
+form{
+  border:1px solid #404553;
+  box-shadow: 0 0 15px rgb(254, 238, 0);
+  border-radius: 5px;
+  label{
+    font-weight: bold;
+  }
+  .btn{
+    background-color: rgb(254, 238, 0);
+    color: #000;
+  }
+}
