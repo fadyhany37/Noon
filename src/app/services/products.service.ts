@@ -13,8 +13,8 @@ export class ProductsService {
     return this.store.collection("Products").snapshotChanges();
   }
 
-  addproduct(product:any)
-  {
-    this.store.collection("Products").add(product);
-  }
+  // addproduct(product:any)
+  // {
+  //   this.store.collection("Products").add(product);
+  // }
 }

@@ -22,17 +22,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._ProductsService.getproducts().subscribe((res)=>{
-      for(let i=0; i<res.length;i++)
-      {
-        this.products[i]=res[i].payload.doc.data()
-      }
+    // this._ProductsService.getproducts().subscribe((res)=>{
+    //   for(let i=0; i<res.length;i++)
+    //   {
+    //     this.products[i]=res[i].payload.doc.data()
+    //   }
 
 
 
-    })
+    // })
 
-    this._ProductsService.addproduct(this.product)
+    // this._ProductsService.addproduct(this.product)
   }
 
 }
