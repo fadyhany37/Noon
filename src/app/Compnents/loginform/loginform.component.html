@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" [formGroup]="userForm">
+					<span id="s1">
+						Welcome Back!
+					</span>
+
+					<span id="s2">
+						Sign in to your account
+					</span>
+
+					<span id="s3">
+					<h6>Don't have an account? <a href="/register">Sign Up</a></h6>	
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<input class="input100" type="email" name="email" formControlName="email" [class.is-valid]="userForm.get('email')?.valid" [class.is-invalid]="userForm.get('email')?.invalid">
+						<span class="focus-input100"> Email</span>
+					</div>
+                    <div [hidden]="userForm.get('email')?.valid ||userForm.get('email')?.untouched" class="alert alert-danger">
+						<small *ngIf="userForm.get('email')?.errors?.['required']">
+                          Email is required
+						</small>
+						<small *ngIf="userForm.get('email')?.errors?.['pattern']">
+                          Put any numbers and capital letters please....
+						</small>
+					   </div> 
+
+
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input  class="input100" type="password" name="password" formControlName="password" [class.is-valid]="userForm.get('password')?.valid" [class.is-invalid]="userForm.get('password')?.invalid">
+						<span class="focus-input100">Password</span>
+					</div>
+					<div [hidden]="userForm.get('password')?.valid ||userForm.get('password')?.untouched" class="alert alert-danger">
+						<small *ngIf="userForm.get('password')?.errors?.['required']">
+							Password is required
+						</small>
+						<small *ngIf="userForm.get('password')?.errors?.['pattern']">
+							Minimum eight charachters, at least one uppercase letter,one lowercase letter and one number
+						</small> 
+					   </div> 
+
+
+
+					<div class="text-center p-t-90">
+						<a class="txt1" href="#" id="forget">
+							Forgot your password?
+						</a>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							SIGN IN
+						</button>
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+
+
+</body>
+
+</html>
