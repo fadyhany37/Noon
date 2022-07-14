@@ -99,12 +99,3 @@ export class FristSwiperComponent {
     ];
   }
 }
-
-/*  this.images = ["./../../../assets/carousel2/1.png",
-    "./../../../assets/carousel2/2.png",
-    "./../../../assets/carousel2/3.png",
-    "./../../../assets/carousel2/9.png",
-    "./../../../assets/carousel2/5.png",
-  "./../../../assets/carousel2/8.png",
-"./../../../assets/carousel2/6.png",
-"./../../../assets/carousel2/7.png"] */
