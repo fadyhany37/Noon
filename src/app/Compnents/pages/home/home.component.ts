@@ -44,31 +44,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.fireStore.getproducts().subscribe((products) => {
-      let prods: any = [];
-      for (let prod of products) {
-        prods.push({ id:prod.payload.doc.id,...prod.payload.doc.data()as object })
-      }
-      this.bestSeller = prods.filter((p: any) => p.rating > 4.5);
-      this.allProducts = prods;
 
-    });
 
+  }
+  ngAfterContentChecked(): void {
+    this.allProducts = this._ProductsService.getProductsByCategorey("all");
+    this.bestSeller=this.allProducts.filter((p: any) => p.rating > 4.5);
 
 
   }
 
-  //// for testing getProductById() and getProductsByCategorey()
-  click() {
-
-    this.fireStore.getProductById("07z4bs4gcultnpuzffz0").subscribe((res) => {
-     console.log( { id: res.payload.id, ...res.payload.data() as object })
-    })
-
-    console.log( this._ProductsService.getProductsByCategorey("smartphones"));
 
 
-    }
 
    }
 

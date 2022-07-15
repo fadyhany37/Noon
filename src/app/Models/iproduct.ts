@@ -2,7 +2,7 @@ export interface Iproduct {
   id?: any;
   title: string;
   description: string;
-  images: [];
+  images: string[];
   stock: number;
   rating: number;
   price: number;

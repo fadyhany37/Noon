@@ -31,7 +31,7 @@
   </div>
   <div class="userData w-100">
     <div *ngIf="adding">
-      <app-add-product></app-add-product>
+      <app-add-product [product]="product" [update]="update"></app-add-product>
     </div>
     <div class="w-100 my-5" *ngIf="!adding">
       <app-products-swiper [products]="sellerProducts" [sellerCode]="sellerCode" ></app-products-swiper>

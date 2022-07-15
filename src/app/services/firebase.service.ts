@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/compat/firestore';
+import { Iproduct } from '../Models/iproduct';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,10 +24,10 @@ export class FirebaseService {
 
     this.store.collection("Products").doc(pId).delete();
   }
-  
-  updateproduct(pId:string,product:any) {
 
-    this.store.collection("Products").doc(pId).set(product);
+  updateproduct(pId:string,product:Iproduct) {
+
+    this.store.collection("Products").doc(pId).update(product);
   }
 
   getProductById(pId: string) {

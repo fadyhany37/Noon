@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -8,48 +9,47 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit  {
   adding: boolean;
-
-  product: any = {
-
-      id: 1,
-      title: "iPhone 9",
-      description: "An apple mobile which is nothing like apple",
-      price: 549,
-    discountPercentage: 12.96,
-     sellerCode:3,
-      rating: 4.69,
-      stock: 94,
-      brand: "Apple",
-      category: "smartphones",
-      thumbnail: "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
-      images: [
-      "https://dummyjson.com/image/i/products/1/1.jpg",
-      "https://dummyjson.com/image/i/products/1/2.jpg",
-      "https://dummyjson.com/image/i/products/1/3.jpg",
-      "https://dummyjson.com/image/i/products/1/4.jpg",
-      "https://dummyjson.com/image/i/products/1/thumbnail.jpg"
-      ]
-
-  }
+  IdRecived: any;
+  update: boolean = false;
+  product: any = {};
 
   sellerProducts: any[]=[]
-  sellerCode: number = 3;
+  sellerCode: number = 4;
 
   user: any = {
     name: 'Alaa Ezzat',
     email: 'alaa@gmail.com',
     image: '../../../../assets/avatar.jpg',
-    sellerCode: 1,
+    sellerCode: 4,
   };
-  constructor(private _ProductsService: ProductsService, private fireStore: FirebaseService) {
+  constructor(private _ProductsService: ProductsService, private fireStore: FirebaseService, private activatedRoute: ActivatedRoute,private router: Router) {
 
     this.adding = true;
-    this.sellerProducts = this._ProductsService.getProductsBySellerCode(this.sellerCode)
+
 
   }
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(paramMap=>{
+      this.IdRecived=paramMap.get('pId');
+      if (this.IdRecived)
+        this.fireStore.getProductById(this.IdRecived).subscribe((p) => {
+          this.product = {id: p.payload.id,...p.payload.data() as object };
+          this.update = true;
+          console.log(this.product)
+
+
+        })
+
+
+        } )
+
+
+  }
+  ngAfterContentChecked(): void {
+
+    this.sellerProducts = this._ProductsService.getProductsBySellerCode(this.sellerCode)
 
 
   }
@@ -58,12 +58,12 @@ export class ProfileComponent implements OnInit {
 
   addingFunction() {
     this.adding = true;
+    this.router.navigate(['/Profile'])
   }
   showFunction() {
     this.adding = false;
 
 
-    console.log(this.sellerProducts)
 
   }
   openRegisterForm() {
