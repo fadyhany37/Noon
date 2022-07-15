@@ -70,6 +70,17 @@ sellerCode:8,
 stock: 9,
 thumbnail:'https://dummyjson.com/image/i/products/80/thumbnail.jpg',
 title:'Chain Pin Tassel Earrings'},
+{
+  brand:'Cuff Butterfly', 
+  category:'womens-jewellery',
+description:'Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings - Silver ( Long Life Quality Product)',
+discountPercentage:17.75,
+price:45,
+rating:4.59,
+sellerCode:8,
+stock: 9,
+thumbnail:'https://dummyjson.com/image/i/products/80/thumbnail.jpg',
+title:'Chain Pin Tassel Earrings'}
 ];
   constructor(private AllProducts: ProductsService) {}
 
