@@ -8,7 +8,8 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./allproducts.component.scss'],
 })
 export class AllproductsComponent implements OnInit {
-  ArrayOfProducts: any[] = [{
+  ArrayOfProducts: any[] = [
+    {
     brand:'Cuff Butterfly', 
     category:'womens-jewellery',
 description:'Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings - Silver ( Long Life Quality Product)',
@@ -68,30 +69,14 @@ rating:4.59,
 sellerCode:8,
 stock: 9,
 thumbnail:'https://dummyjson.com/image/i/products/80/thumbnail.jpg',
-title:'Chain Pin Tassel Earrings'},{
-  brand:'Cuff Butterfly', 
-  category:'womens-jewellery',
-description:'Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings - Silver ( Long Life Quality Product)',
-discountPercentage:17.75,
-price:45,
-rating:4.59,
-sellerCode:8,
-stock: 9,
-thumbnail:'https://dummyjson.com/image/i/products/80/thumbnail.jpg',
-title:'Chain Pin Tassel Earrings'},{
-  brand:'Cuff Butterfly', 
-  category:'womens-jewellery',
-description:'Pair Of Ear Cuff Butterfly Long Chain Pin Tassel Earrings - Silver ( Long Life Quality Product)',
-discountPercentage:17.75,
-price:45,
-rating:4.59,
-sellerCode:8,
-stock: 9,
-thumbnail:'https://dummyjson.com/image/i/products/80/thumbnail.jpg',
-title:'Chain Pin Tassel Earrings'}];
+title:'Chain Pin Tassel Earrings'},
+];
   constructor(private AllProducts: ProductsService) {}
 
   ngOnInit(): void {
+
+
+
     // this.AllProducts.getproducts().subscribe((ArrayOfProducts) => {
     //   let prods: any = [];
     //   for(let pro of ArrayOfProducts){
@@ -101,5 +86,8 @@ title:'Chain Pin Tassel Earrings'}];
     //   this.ArrayOfProducts = prods;
     // }
     // );
+
+
+    
   }
 }
