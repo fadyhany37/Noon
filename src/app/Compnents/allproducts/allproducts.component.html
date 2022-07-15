@@ -1,0 +1,19 @@
+
+<div class="conatiner float-left" *ngFor="let SingleProduct of ArrayOfProducts"  >
+    <div  class="card border-0 rounded-0 position-relative " style="width: 15rem;"  *ngIf="SingleProduct.stock>0">
+
+      <img [src]="SingleProduct.thumbnail" class="rounded-0 m-0" style="width: 100%; height:200px; object-fit:fill;"  [alt]="SingleProduct.description ">
+
+     <div class="card-body text-center ">
+        <p class="card-title my-3 ">{{SingleProduct.description}}</p>
+        <h5 class="card-text "> <span>EGP</span> {{SingleProduct.price}}.00</h5>
+        <p style="font-size: 12px;" *ngIf="SingleProduct.discountPercentage>0"><span style="text-decoration-line: line-through;">EGP {{(SingleProduct.price*(100+SingleProduct.discountPercentage)/100)| number: '1.0-0'}} </span> <span class="fw-bolder ms-2" style="color:rgb(137, 225, 4)"> {{SingleProduct.discountPercentage}}% OFF</span></p>
+        <div class="d-flex justify-content-between ">
+          <p class="yellow-badge ps-1">express</p>
+           <p style="font-size: 12px;" class="text-warning  fw-bold"> <i class="bi bi-star-fill text-warning "></i>{{SingleProduct.rating}}</p>
+           </div>
+      </div>
+      <div *ngIf="SingleProduct.rating>4.8" class="best-seller">
+        Best Seller
+     </div>
+    </div>
