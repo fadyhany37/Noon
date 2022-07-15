@@ -10,8 +10,33 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProfileComponent implements OnInit {
   adding: boolean;
-  sellerProducts!: Iproduct[];
+
+  product: any = {
+
+      id: 1,
+      title: "iPhone 9",
+      description: "An apple mobile which is nothing like apple",
+      price: 549,
+    discountPercentage: 12.96,
+     sellerCode:3,
+      rating: 4.69,
+      stock: 94,
+      brand: "Apple",
+      category: "smartphones",
+      thumbnail: "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
+      images: [
+      "https://dummyjson.com/image/i/products/1/1.jpg",
+      "https://dummyjson.com/image/i/products/1/2.jpg",
+      "https://dummyjson.com/image/i/products/1/3.jpg",
+      "https://dummyjson.com/image/i/products/1/4.jpg",
+      "https://dummyjson.com/image/i/products/1/thumbnail.jpg"
+      ]
+
+  }
+
+  sellerProducts: any[]=[]
   sellerCode: number = 3;
+
   user: any = {
     name: 'Alaa Ezzat',
     email: 'alaa@gmail.com',
@@ -20,18 +45,12 @@ export class ProfileComponent implements OnInit {
   };
   constructor(private _ProductsService: ProductsService, private fireStore: FirebaseService) {
 
-    this.adding = false;
-    this.fireStore.getproducts().subscribe((products) => {
-      let prods: any = [];
-      for (let prod of products) {
-        prods.push({ id: prod.payload.doc.id, ...prod.payload.doc.data() as object })
-      }
-      this.sellerProducts = prods.filter((p: any) => p.sellerCode == this.sellerCode);
+    this.adding = true;
+    this.sellerProducts = this._ProductsService.getProductsBySellerCode(this.sellerCode)
 
-
-    });
   }
   ngOnInit(): void {
+
 
   }
 
@@ -43,7 +62,7 @@ export class ProfileComponent implements OnInit {
   showFunction() {
     this.adding = false;
 
-    this.sellerProducts = this._ProductsService.getProductsBySellerCode(this.sellerCode)
+
     console.log(this.sellerProducts)
 
   }

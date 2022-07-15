@@ -1,4 +1,4 @@
-<<div class="profile w-100">
+  <div class="profile w-100">
   <div class="info">
     <div class="container-fluid">
       <div class="row">
@@ -33,13 +33,14 @@
     <div *ngIf="adding">
       <app-add-product></app-add-product>
     </div>
-    <div class="w-100 bg-white" *ngIf="!adding">
-      <app-products-swiper  [products]="sellerProducts" [sellerCode]="sellerCode" ></app-products-swiper>
+    <div class="w-100 my-5" *ngIf="!adding">
+      <app-products-swiper [products]="sellerProducts" [sellerCode]="sellerCode" ></app-products-swiper>
     </div>
 
 
   </div>
  </div>
+
 
 
 

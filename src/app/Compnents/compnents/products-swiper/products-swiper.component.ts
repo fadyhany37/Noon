@@ -3,10 +3,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import SwiperCore, { SwiperOptions } from 'swiper';
 import  { Navigation, Pagination, Scrollbar } from 'swiper';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar]);
-
-
-
+SwiperCore.use([Navigation, Pagination]);
 
 @Component({
   selector: 'app-products-swiper',
@@ -36,7 +33,7 @@ export class ProductsSwiperComponent implements OnInit ,OnChanges {
     }
   }
   updateProduct(pId: string) {
-    
+
   }
 
 }
