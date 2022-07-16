@@ -22,6 +22,7 @@ export class AddProductComponent implements OnInit,OnChanges {
   @Input() product!: any;
 
   @Input() update: boolean = false;
+
   linkPattern = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{10,256}/;
   stringPattern = /^[A-Za-z]+[A-Za-z0-9@:%._\+~#= ]+$/;
   usrFormGroup: FormGroup;
@@ -83,34 +84,43 @@ export class AddProductComponent implements OnInit,OnChanges {
     this.images.removeAt(-1);
   }
 
+  resetForm()
+  {
+    this.update = false;
+    this.usrFormGroup.reset()
+    this.images.clear()
+    this.images.push(this.fb.control("", Validators.required));
+
+  }
+
   addProduct(e:Event) {
 
     if (this.update) {
+
       this.product = this.usrFormGroup.value ;
       this.fireStore.updateproduct(this.pId, this.product)
-
-      alert(`${this.product.title} is updated`)
-
-      this.router.navigate(['/Profile'])
+      this.resetForm();
+    alert(`${this.product.title} is updated`)
     }
     else {
 
     this.product = this.usrFormGroup.value;
       this.fireStore.addproduct(this.product)
-      alert(`${this.product.title} is added`)
-      this.usrFormGroup.reset()
-
+      this.resetForm();
+    alert(`${this.product.title} is added`)
   }
   }
 
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+   
+
+  }
 
   ngOnChanges(): void {
 
     if (this.product.images) {
       console.log("again");
-
       this.title?.setValue(this.product.title);
       this.description?.setValue(this.product.description);
       this.stock?.setValue(this.product.stock);
@@ -125,7 +135,7 @@ export class AddProductComponent implements OnInit,OnChanges {
         this.images.push(this.fb.control(this.product.images[i], Validators.required));
       }
       this.pId = this.product.id;
-      this.product ={}
+
 
     }
 

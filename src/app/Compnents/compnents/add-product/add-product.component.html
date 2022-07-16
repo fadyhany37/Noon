@@ -282,5 +282,7 @@
     </div>
   </div>
 
-  <button type="submit" [disabled]="usrFormGroup.invalid" class="btn">Save</button>
+  <button type="submit" *ngIf="!update" [disabled]="usrFormGroup.invalid" class="btn">add</button>
+
+  <button type="submit" *ngIf="update" [disabled]="usrFormGroup.invalid" class="btn">update</button>
 </form>

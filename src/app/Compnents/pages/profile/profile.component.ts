@@ -1,5 +1,6 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscriber } from 'rxjs';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -31,19 +32,27 @@ export class ProfileComponent implements OnInit  {
 
   }
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(paramMap=>{
-      this.IdRecived=paramMap.get('pId');
+
+    let subscribation: any;
+    this.activatedRoute.paramMap.subscribe(paramMap => {
+
+      console.log("params")
+
+      this.IdRecived = paramMap.get('pId');
       if (this.IdRecived)
-        this.fireStore.getProductById(this.IdRecived).subscribe((p) => {
-          this.product = {id: p.payload.id,...p.payload.data() as object };
-          this.update = true;
-          console.log(this.product)
+      subscribation= this.fireStore.getProductById(this.IdRecived).subscribe((p) => {
+        this.product = { id: p.payload.id, ...p.payload.data() as object };
+        this.adding = true;
+        this.update = true;
+        subscribation.unsubscribe();
+
+      })
 
 
-        })
 
 
-        } )
+    })
+
 
 
   }
@@ -55,15 +64,13 @@ export class ProfileComponent implements OnInit  {
   }
 
 
-
   addingFunction() {
     this.adding = true;
-    this.router.navigate(['/Profile'])
+
   }
+
   showFunction() {
     this.adding = false;
-
-
 
   }
   openRegisterForm() {
