@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Compnents/home/home.component';
 import { AllproductsComponent } from './Compnents/allproducts/allproducts.component';
-import { ProductdetailsComponent } from './Compnents/productdetails/productdetails.component';
 import { ProductsdetailsComponent } from './Compnents/productsdetails/productsdetails.component';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { ProductsdetailsComponent } from './Compnents/productsdetails/productsde
     AppComponent,
     HomeComponent,
     AllproductsComponent,
-    ProductdetailsComponent,
     ProductsdetailsComponent
   ],
   imports: [

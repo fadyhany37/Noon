@@ -17,7 +17,7 @@ export class AllproductsComponent implements OnInit {
   constructor(private AllProducts: ProductsService, private router:Router) {}
 
   ShowProductDetails(productid:any) :void {
-    this.router.navigate(['productdetails',productid]);
+    this.router.navigate(['productsdetails',productid]);
  
   }
 
