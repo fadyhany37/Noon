@@ -1,0 +1,198 @@
+<div class="container-fluid py-4 px-5 overflow-hidden">
+    <div class="row g-3">
+       <div class="col-md-6 col-lg-4">
+          <div class="item d-flex gap-3">
+             <div
+                class="images-icon flex-shrink-0 d-flex flex-column gap-2"
+             >
+                <img
+                   [src]="ArrayOfProducts[0].images[0]"
+                   alt="icon photo"
+                   class="img-thumbnail"
+                />
+                <img
+                [src]="ArrayOfProducts[0].images[1]"
+                   alt="icon photo"
+                   class="img-thumbnail"
+                />
+                <img
+                [src]="ArrayOfProducts[0].images[2]"
+                   alt="icon photo"
+                   class="img-thumbnail"
+                />
+                <img
+                [src]="ArrayOfProducts[0].images[3]"
+                   alt="icon photo"
+                   class="img-thumbnail"
+                />
+             </div>
+            <div class="image">
+             <img
+             [src]="ArrayOfProducts[0].thumbnail"
+             alt="photo product"
+             class="w-100"
+          />
+            </div>
+          </div>
+       </div>
+       <div class="col-md-6 col-lg-5">
+         <div *ngIf="ArrayOfProducts[0].rating>4.8" class="best-seller">
+            Best Seller
+          </div>
+             <i
+                class="fa-solid fa-bookmark position-absolute top-0 start-0 ms-1"
+             ></i>
+          
+          <h6 class="text-muted my-2">{{ArrayOfProducts[0].brand}}</h6>
+          <h4 class="text-dark">{{ArrayOfProducts[0].description}}</h4>
+          <div class="d-flex gap-3">
+             <p class="m-0">Model Number : 10001096</p>
+             <span class="vr"></span>
+             <span class="badge bg-green d-flex align-items-center"
+                >{{ArrayOfProducts[0].rating}}  <i class="fa-solid fa-star fa-sm"></i
+             ></span>
+             <span href="" class="m-0">Ratings</span>
+          </div>
+          <p>
+             Was:
+             <span class="text-decoration-line-through">EGP 899.00 </span>
+          </p>
+          <p>
+             Now:
+             <span class="fw-bold fs-3">{{ArrayOfProducts[0].price}}   EGP   </span>
+             <span class="text-muted">Inclusive of VAT</span>
+          </p>
+          <p>
+             Saving:
+             <span>EGP 12.70 </span>
+             <span class="text-success badge bg-green1">{{ArrayOfProducts[0].discountPercentage}}% Off</span>
+          </p>
+          <p>
+             <img src="./assets/images/emi.svg" class="img-fluid" alt="icon" />
+             Monthly payment plans from EGP 43
+             <a href="">View more details </a>
+          </p>
+          <img
+             src="./assets/images/en_pdp-01.png"
+             alt="photo none"
+             class="img-fluid"
+          />
+          <div class="details bg-light p-3 my-3">
+             <h6>Order in 23 hrs 10 mins</h6>
+             <div class="d-flex justify-content-between">
+                <p class="fw-semibold">
+                   Free delivery <span class="fw-normal">by</span
+                   ><span class="text-decoration-underline">
+                      Mon, Jul 18</span
+                   >
+                </p>
+                <div class="imag-details">
+                   <img
+                      src="./assets/images/fulfilment_express_v2-en.svg"
+                      class="img-fluid"
+                      alt="express photo"
+                   />
+                   <img
+                      src="./assets/images/help.svg"
+                      class="img-fluid"
+                      alt="help photo"
+                   />
+                </div>
+             </div>
+             <div class="d-flex align-items-start bg-white p-2">
+                <img
+                   src="./assets/images/same_day_delivery.svg"
+                   class="img-fluid me-2"
+                   alt="icon"
+                />
+                <p>
+                   Want it Tomorrow? Select Get It Tomorrow on checkout
+                   within the next 8 hrs and 10 mins.
+                </p>
+             </div>
+          </div>
+          <div>
+             <h4 class="my-3">Quantity</h4>
+             <div class="hstack gap-3">
+               
+                <span class="display-6 btn">{{ArrayOfProducts[0].stock}}</span>
+               
+                <button class="btn btn-primary py-2 flex-grow-1" (click)="DecreaseFromStock(ArrayOfProducts)" >
+                   Add To Cart
+                </button>
+             </div>
+          </div>
+       </div>
+       <div class="col-md-6 col-lg-3">
+          <ul class="list-group list-group-flush border-start">
+             <li class="list-group-item d-flex align-items-start">
+                <img
+                   src="./assets/images/non_returnable.svg"
+                   class="img-fluid"
+                   alt=""
+                />
+                <span
+                   >This item cannot be exchanged or returned Learn
+                   more</span
+                >
+             </li>
+             <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                   <img
+                      src="./assets/images/seller.svg"
+                      class="img-fluid icon-details"
+                      alt=""
+                   />
+                   <div class="details-item">
+                      <p class="m-0">Sold by <a href="">noon</a></p>
+                      <p class="m-0">
+                         <span
+                            class="badge bg-green "
+                            >{{ArrayOfProducts[0].rating}} <i class="fa-solid fa-star fa-sm"></i
+                         ></span>
+                         79%positive
+                      </p>
+                   </div>
+                </div>
+                <p class="text-muted my-3">100% authenticity guaranteed by noon</p>
+
+             </li>
+             <li class="list-group-item d-flex align-items-center gap-2 badge-img text-center">
+                <div class="item">
+                   <img src="./assets/images/badge_great_recent_rating.png" class="img-fluid" alt="">
+                   <p class="small">Low Return Seller</p>
+                </div>
+                <div class="item">
+                   <img src="./assets/images/badge_low_returns_seller.png" class="img-fluid" alt="">
+                   <p class="small">Great Recent Rating</p>
+                </div>
+                <hr class="vr">
+                <div class="item">
+                   <h6 class="text-success fw-bold">84%</h6>
+                   <p class="small">Product as Described </p>
+                </div>
+             </li>
+             <li class="list-group-item">
+                <div class="item d-flex align-items-start">
+                   <img src="./assets/images/trusted_shipping_usp_v2.svg" class="img-fluid" alt="">
+                   <div class="det">
+                      <h6 class="text-muted">TRUSTED SHIPPING
+                      </h6>
+                      <p class="text-muted small">Free shipping when you spend EGP 200 and above on express items</p>
+                   </div>
+                </div>
+                <div class="item d-flex align-items-start">
+                   <img src="./assets/images/secure_usp.svg" class="img-fluid" alt="">
+                   <div class="det">
+                      <h6 class="text-muted">
+                         SECURE SHOPPING
+                      </h6>
+                      <p class="text-muted small">Your data is always protected
+                      </p>
+                   </div>
+                </div>
+             </li>
+          </ul>
+       </div>
+    </div>
+ </div>

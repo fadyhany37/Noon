@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="background-color: #f7f7fa;">
   <div class="col-lg-2">
     <div class="sc-6a72e040-3 juIHfI">
       <div class="sc-6a72e040-4 fNMDAX">
@@ -257,37 +257,39 @@
   </div>
 </div>
 <div class="col-lg-10">
- <div class="item">
-  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 ">
-    <div class="col px-3 py-4 " *ngFor="let SingleProduct of ArrayOfProducts">
-      <div class="card rounded-0 "  *ngIf="SingleProduct.stock>0">
+  <div class="item">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 ">
+      <ng-container  *ngFor="let SingleProduct of ArrayOfProducts; let i=index">
 
-        <img [src]="SingleProduct.thumbnail" class="w-100 card-img-top" 
-          [alt]="SingleProduct.description ">
-  
-        <div class="card-body text-center ">
-          <p class="card-title my-3 ">{{SingleProduct.description}}</p>
-          <h5 class="card-text "> <span>EGP</span> {{SingleProduct.price}}.00</h5>
-          <p style="font-size: 12px;" *ngIf="SingleProduct.discountPercentage>0"><span
-              style="text-decoration-line: line-through;">EGP
-              {{(SingleProduct.price*(100+SingleProduct.discountPercentage)/100)| number: '1.0-0'}}
-            </span> <span class="fw-bolder ms-2" style="color:rgb(137, 225, 4)">
-              {{SingleProduct.discountPercentage}}%
-              OFF</span>
-          </p>
-          <div class="d-flex justify-content-between ">
-            <p class="yellow-badge ps-1">express</p>
-            <p style="font-size: 12px;" class="text-warning  fw-bold"> <i
-                class="bi bi-star-fill text-warning "></i>{{SingleProduct.rating}}</p>
+        <div class="col px-3 py-4 border-1 rounded-2 " *ngIf="SingleProduct.stock > 0">
+          <div class="card h-100 rounded-0 " >
+  <button class="w-100 border-0 rounded-0 bg-white " (click)="ShowProductDetails(SingleProduct.id)" [routerLink]="['/productdetails', SingleProduct.id]">
+            <img [src]="SingleProduct.thumbnail" class="w-100 card-img-top" [alt]="SingleProduct.description">
+          </button>
+            <div class="card-body text-center ">
+              <p class="card-title my-3 ">{{SingleProduct.description}}</p>
+              <h5 class="card-text "> <span>EGP</span> {{SingleProduct.price}}.00</h5>
+              <p style="font-size: 12px;" *ngIf="SingleProduct.discountPercentage>0"><span
+                  style="text-decoration-line: line-through;">EGP
+                  {{(SingleProduct.price*(100+SingleProduct.discountPercentage)/100)| number: '1.0-0'}}
+                </span> <span class="fw-bolder ms-2" style="color:rgb(137, 225, 4)">
+                  {{SingleProduct.discountPercentage}}%
+                  OFF</span>
+              </p>
+              <div class="d-flex justify-content-between ">
+                <p class="yellow-badge ps-1">express</p>
+                <p style="font-size: 12px;" class="text-warning  fw-bold"> <i
+                    class="bi bi-star-fill text-warning "></i>{{SingleProduct.rating}}</p>
+              </div>
+            </div>
+            <div *ngIf="SingleProduct.rating>4.8" class="best-seller">
+              Best Seller
+            </div>
           </div>
         </div>
-        <div *ngIf="SingleProduct.rating>4.8" class="best-seller">
-          Best Seller
-        </div>
-      </div>
+      </ng-container>
+      
     </div>
-   
   </div>
- </div>
 </div>
 </div>

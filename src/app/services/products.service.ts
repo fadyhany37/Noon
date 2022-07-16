@@ -13,6 +13,10 @@ export class ProductsService {
     return this.store.collection("Products").snapshotChanges();
   }
 
+  getProductById(productId: string) {
+    return this.store.collection("Products").doc(productId).snapshotChanges();
+  }
+
   // addproduct(product:any)
   // {
   //   this.store.collection("Products").add(product);
