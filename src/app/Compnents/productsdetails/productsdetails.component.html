@@ -1,34 +1,34 @@
 <div class="container-fluid py-4 px-5 overflow-hidden">
     <div class="row g-3">
        <div class="col-md-6 col-lg-4">
-          <div class="item d-flex gap-3">
+          <div class="item d-flex gap-3" >
              <div
                 class="images-icon flex-shrink-0 d-flex flex-column gap-2"
              >
                 <img
-                   [src]="ArrayOfProducts[0].images[0]"
+                   [src]="newpro.images[0]"
                    alt="icon photo"
                    class="img-thumbnail"
                 />
                 <img
-                [src]="ArrayOfProducts[0].images[1]"
+                [src]="newpro.images[1]"
                    alt="icon photo"
                    class="img-thumbnail"
                 />
                 <img
-                [src]="ArrayOfProducts[0].images[2]"
+                [src]="newpro.images[2]"
                    alt="icon photo"
                    class="img-thumbnail"
                 />
                 <img
-                [src]="ArrayOfProducts[0].images[3]"
+                [src]="newpro.images[3]"
                    alt="icon photo"
                    class="img-thumbnail"
                 />
              </div>
             <div class="image">
              <img
-             [src]="ArrayOfProducts[0].thumbnail"
+             [src]="newpro.thumbnail"
              alt="photo product"
              class="w-100"
           />
@@ -36,20 +36,20 @@
           </div>
        </div>
        <div class="col-md-6 col-lg-5">
-         <div *ngIf="ArrayOfProducts[0].rating>4.8" class="best-seller">
+         <div *ngIf="newpro.rating>4.8" class="best-seller">
             Best Seller
           </div>
              <i
                 class="fa-solid fa-bookmark position-absolute top-0 start-0 ms-1"
              ></i>
           
-          <h6 class="text-muted my-2">{{ArrayOfProducts[0].brand}}</h6>
-          <h4 class="text-dark">{{ArrayOfProducts[0].description}}</h4>
+          <h6 class="text-muted my-2">{{newpro.brand}}</h6>
+          <h4 class="text-dark">{{newpro.description}}</h4>
           <div class="d-flex gap-3">
              <p class="m-0">Model Number : 10001096</p>
              <span class="vr"></span>
              <span class="badge bg-green d-flex align-items-center"
-                >{{ArrayOfProducts[0].rating}}  <i class="fa-solid fa-star fa-sm"></i
+                >{{newpro.rating}}  <i class="fa-solid fa-star fa-sm"></i
              ></span>
              <span href="" class="m-0">Ratings</span>
           </div>
@@ -59,13 +59,13 @@
           </p>
           <p>
              Now:
-             <span class="fw-bold fs-3">{{ArrayOfProducts[0].price}}   EGP   </span>
+             <span class="fw-bold fs-3">{{newpro.price}}   EGP   </span>
              <span class="text-muted">Inclusive of VAT</span>
           </p>
           <p>
              Saving:
              <span>EGP 12.70 </span>
-             <span class="text-success badge bg-green1">{{ArrayOfProducts[0].discountPercentage}}% Off</span>
+             <span class="text-success badge bg-green1">{{newpro.discountPercentage}}% Off</span>
           </p>
           <p>
              <img src="./assets/images/emi.svg" class="img-fluid" alt="icon" />
@@ -115,9 +115,9 @@
              <h4 class="my-3">Quantity</h4>
              <div class="hstack gap-3">
                
-                <span class="display-6 btn">{{ArrayOfProducts[0].stock}}</span>
+                <span class="display-6 btn">{{newpro.stock}}</span>
                
-                <button class="btn btn-primary py-2 flex-grow-1" (click)="DecreaseFromStock(ArrayOfProducts)" >
+                <button class="btn btn-primary py-2 flex-grow-1" (click)="DecreaseFromStock(newpro.stock)" >
                    Add To Cart
                 </button>
              </div>
@@ -148,7 +148,7 @@
                       <p class="m-0">
                          <span
                             class="badge bg-green "
-                            >{{ArrayOfProducts[0].rating}} <i class="fa-solid fa-star fa-sm"></i
+                            >{{newpro.rating}} <i class="fa-solid fa-star fa-sm"></i
                          ></span>
                          79%positive
                       </p>
