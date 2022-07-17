@@ -10,6 +10,7 @@ import { FirebaseService } from './firebase.service';
 export class ProductsService {
   products:any[]=[]
   constructor(private fireStore: FirebaseService) {
+    
     this.fireStore.getproducts().subscribe((products) => {
       let prods: any = [];
       for (let prod of products) {
@@ -21,11 +22,13 @@ export class ProductsService {
     });
    }
 
-  getProductsByCategorey(cat:string)
-  {
-
-    return this.products.filter((p) => p.category == cat);;
-
+  getProductsByCategorey(cat: string) {
+    if (cat == "all") {
+      return this.products
+    }
+    else {
+      return this.products.filter((p) => p.category == cat);;
+    }
   }
   getProductsBySellerCode(code:number):Iproduct[]
   {

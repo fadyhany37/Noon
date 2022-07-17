@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
   { path: 'Profile', component: ProfileComponent },
+  { path: 'Profile/:pId', component: ProfileComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

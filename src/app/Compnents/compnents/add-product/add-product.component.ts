@@ -1,5 +1,5 @@
 import { Iproduct } from './../../../Models/iproduct';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -8,18 +8,25 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import { FirebaseService } from 'src/app/services/firebase.service';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss'],
 })
-export class AddProductComponent implements OnInit {
-  product: Iproduct = {} as Iproduct;
+export class AddProductComponent implements OnInit,OnChanges {
+
+   pId:string=""
+
+  @Input() product!: any;
+
+  @Input() update: boolean = false;
   linkPattern = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{10,256}/;
   stringPattern = /^[A-Za-z]+[A-Za-z0-9@:%._\+~#= ]+$/;
   usrFormGroup: FormGroup;
   myPassword: any;
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder,private fireStore: FirebaseService) {
     this.usrFormGroup = this.fb.group({
       title: ['', Validators.required],
       description: ['', [Validators.required, Validators.minLength(20)]],
@@ -28,14 +35,12 @@ export class AddProductComponent implements OnInit {
       brand: ['', Validators.required],
       rating: ['', [Validators.required, Validators.min(1), Validators.max(9)]],
       price: ['', [Validators.required, Validators.min(1)]],
-      discountPercentage: [
-        '',
-        [Validators.required, Validators.min(1), Validators.max(60)],
-      ],
+      discountPercentage: ['',[Validators.required, Validators.min(1), Validators.max(60)],],
       thumbnail: ['', Validators.required],
       category: ['', Validators.required],
     });
   }
+
 
   get title() {
     return this.usrFormGroup.get('title');
@@ -78,10 +83,55 @@ export class AddProductComponent implements OnInit {
     this.images.removeAt(-1);
   }
 
-  addProduct() {
+  addProduct(e:Event) {
+
+    if (this.update) {
+      this.product = this.usrFormGroup.value ;
+      this.fireStore.updateproduct(this.pId, this.product)
+
+      alert(`${this.product.title} is updated`)
+
+      this.router.navigate(['/Profile'])
+    }
+    else {
+
     this.product = this.usrFormGroup.value;
-    console.log(this.product);
+      this.fireStore.addproduct(this.product)
+      alert(`${this.product.title} is added`)
+      this.usrFormGroup.reset()
+
+  }
   }
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void { }
+
+  ngOnChanges(): void {
+
+    if (this.product.images) {
+      console.log("again");
+
+      this.title?.setValue(this.product.title);
+      this.description?.setValue(this.product.description);
+      this.stock?.setValue(this.product.stock);
+      this.brand?.setValue(this.product.brand);
+      this.rating?.setValue(this.product.rating);
+      this.price?.setValue(this.product.price);
+      this.discountPercentage?.setValue(this.product.discountPercentage);
+      this.thumbnail?.setValue(this.product.thumbnail);
+      this.category?.setValue(this.product.category);
+      this.images.at(0).setValue(this.product.images[0])
+      for (let i = 1; i < this.product.images.length; i++) {
+        this.images.push(this.fb.control(this.product.images[i], Validators.required));
+      }
+      this.pId = this.product.id;
+      this.product ={}
+
+    }
+
+
+
+  }
 }
+
+
