@@ -8,15 +8,15 @@ import { AuthservicesService } from 'src/app/services/authservices.service';
 })
 export class ForgotpasswordComponent implements OnInit {
 
-  email:string=""
+  email: string = ""
   constructor(private auth: AuthservicesService) { }
 
   ngOnInit(): void {
   }
 
-  forgotpass()
-  {
-    
+  forgotpass() {
+
+    console.log(this.email);
   }
 
 }

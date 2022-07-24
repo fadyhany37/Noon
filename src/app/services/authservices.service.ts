@@ -8,30 +8,30 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthservicesService {
-// user:Observable<firebase.User>
-
+  users: any = [];
 
   constructor(private fireauth: AngularFirestore) {
 
-   }
-
-  //login//
-  login() 
-  {
-    return this.fireauth.collection("users").snapshotChanges();
   }
 
-  addLogin(user:any)
-  {
+  //login//
+  getUsers() {
+    var snapshot = this.fireauth.collection("users").valueChanges();
+    snapshot.subscribe((val) => this.users.push(val));
+  
+    return this.users;
+  }
+
+  addLogin(user: any) {
     this.fireauth.collection("users").add(user);
   }
 
-  deleteLogin(userId:string) {
+  deleteLogin(userId: string) {
 
     this.fireauth.collection("users").doc(userId).delete();
   }
-  
-  updateLogin(userId:string,user:any) {
+
+  updateLogin(userId: string, user: any) {
 
     this.fireauth.collection("users").doc(userId).set(user);
   }
@@ -42,22 +42,20 @@ export class AuthservicesService {
 
 
   //register//
-  register() 
-  {
+  register() {
     return this.fireauth.collection("users").snapshotChanges();
   }
 
-  addregister(user:any)
-  {
+  addRegister(user: any) {
     this.fireauth.collection("users").add(user);
   }
 
-  deleteregister(userId:string) {
+  deleteregister(userId: string) {
 
     this.fireauth.collection("users").doc(userId).delete();
   }
-  
-  updateregister(userId:string,user:any) {
+
+  updateregister(userId: string, user: any) {
 
     this.fireauth.collection("users").doc(userId).set(user);
   }
@@ -68,29 +66,29 @@ export class AuthservicesService {
 
 
   //signout//
-  logout() 
-  {
-    return this.fireauth.collection("users").snapshotChanges();
-  }
+  // logout() 
+  // {
+  //   return this.fireauth.collection("users").snapshotChanges();
+  // }
 
-  addlogout(user:any)
-  {
-    this.fireauth.collection("users").add(user);
-  }
+  // addlogout(user:any)
+  // {
+  //   this.fireauth.collection("users").add(user);
+  // }
 
-  deletelogout(userId:string) {
+  // deletelogout(userId:string) {
 
-    this.fireauth.collection("users").doc(userId).delete();
-  }
-  
-  updatelogout(userId:string,user:any) {
+  //   this.fireauth.collection("users").doc(userId).delete();
+  // }
 
-    this.fireauth.collection("users").doc(userId).set(user);
-  }
+  // updatelogout(userId:string,user:any) {
 
-  getUserLogoutById(userId: string) {
-    return this.fireauth.collection("users").doc(userId).snapshotChanges();
-  }
+  //   this.fireauth.collection("users").doc(userId).set(user);
+  // }
+
+  // getUserLogoutById(userId: string) {
+  //   return this.fireauth.collection("users").doc(userId).snapshotChanges();
+  // }
 
 
 
@@ -99,5 +97,5 @@ export class AuthservicesService {
   // {
   //   this.fireauth.
   // }
-  
+
 }
