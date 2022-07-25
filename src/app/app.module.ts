@@ -18,6 +18,9 @@ import { ProfileComponent } from './Compnents/pages/profile/profile.component';
 import { LayoutComponent } from './Compnents/pages/layout/layout.component';
 import { NotFoundComponent } from './Compnents/pages/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartComponent } from './Compnents/pages/cart/cart.component';
+import { WishListComponent } from './Compnents/pages/cart/wish-list/wish-list.component';
+import { OrderSummryComponent } from './Compnents/pages/cart/order-summry/order-summry.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     LayoutComponent,
     NotFoundComponent,
+    CartComponent,
+    WishListComponent,
+    OrderSummryComponent,
   ],
   imports: [
     BrowserModule,
