@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NoonProducts } from 'src/app/Interface/noon-products';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-allproducts',
@@ -13,7 +14,8 @@ import { Router } from '@angular/router';
 })
 export class AllproductsComponent implements OnInit {
   constructor(private AllProducts: ProductsService, private router: Router) {}
-
+// term:BehaviorSubject<any> = new BehaviorSubject('')
+termSec:string = ''
   ShowProductDetails(productid: any): void {
     this.router.navigate(['productsdetails', productid]);
   }
@@ -97,18 +99,32 @@ export class AllproductsComponent implements OnInit {
   // ];
 
 
-
-
+  getValue(e:any) {
+    this.termSec = e.target.getAttribute('data-name'); ;
+    // console.log(this.term.getValue());
+    
+  }
+  
   ngOnInit(): void {
+//     this.term.subscribe({
+//       next:()=> {
+// this.termSec = this.term.getValue()
+//       }
+//     })
+
+
+
+
     this.AllProducts.getproducts().subscribe((ArrayOfProducts) => {
       let prods: any = [];
       for (let pro of ArrayOfProducts) {
         prods.push({
           id: pro.payload.doc.id,
           ...(pro.payload.doc.data() as object),
+          
         });
       }
-
+     
       this.ArrayOfProducts = prods;
     });
   }

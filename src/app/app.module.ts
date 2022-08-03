@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Compnents/home/home.component';
 import { AllproductsComponent } from './Compnents/allproducts/allproducts.component';
 import { ProductsdetailsComponent } from './Compnents/productsdetails/productsdetails.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AllproductsComponent,
-    ProductsdetailsComponent
+    ProductsdetailsComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
