@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+<<<<<<< HEAD
 import { HomeComponent } from './Compnents/pages/home/home.component';
 import { NavbarComponent } from './Compnents/compnents/navbar/navbar.component';
 import { NavCategoriesComponent } from './Compnents/compnents/nav-categories/nav-categories.component';
@@ -21,11 +22,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WishListComponent } from './Compnents/pages/cart2/wish-list/wish-list.component';
 import { OrderSummryComponent } from './Compnents/pages/cart2/order-summry/order-summry.component';
 import { Cart2Component } from './Compnents/pages/cart2/cart2.component';
+=======
+import { HomeComponent } from './Compnents/home/home.component';
+import { AllproductsComponent } from './Compnents/allproducts/allproducts.component';
+import { ProductsdetailsComponent } from './Compnents/productsdetails/productsdetails.component';
+import { FilterPipe } from './filter.pipe';
+>>>>>>> 365f31c34669434adfd04a5b69ecf28a87dbef86
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+<<<<<<< HEAD
     NavbarComponent,
     CarouselComponentComponent,
     NavCategoriesComponent,
@@ -39,6 +47,11 @@ import { Cart2Component } from './Compnents/pages/cart2/cart2.component';
     WishListComponent,
     OrderSummryComponent,
     Cart2Component,
+=======
+    AllproductsComponent,
+    ProductsdetailsComponent,
+    FilterPipe
+>>>>>>> 365f31c34669434adfd04a5b69ecf28a87dbef86
   ],
   imports: [
     BrowserModule,

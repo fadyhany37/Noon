@@ -29,6 +29,7 @@ export class ProductsService {
       return this.products.filter((p) => p.category == cat);;
     }
   }
+<<<<<<< HEAD
   getProductsBySellerCode(code:number):Iproduct[]
   {
 
@@ -36,6 +37,17 @@ export class ProductsService {
 
   }
 
+=======
+
+  getProductById(productId: string) {
+    return this.store.collection("Products").doc(productId).snapshotChanges();
+  }
+
+  // addproduct(product:any)
+  // {
+  //   this.store.collection("Products").add(product);
+  // }
+>>>>>>> 365f31c34669434adfd04a5b69ecf28a87dbef86
 }
 
 
