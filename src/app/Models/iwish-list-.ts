@@ -1,5 +1,5 @@
-import { IProduct } from "./iproduct";
+import { Iproduct } from "./iproduct";
 
 export interface IwishList {
-  product: IProduct;
+  product: Iproduct;
 }

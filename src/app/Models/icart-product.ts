@@ -1,9 +1,6 @@
-import { IProduct } from "./iproduct";
+import { Iproduct } from "./iproduct";
 export interface ICartProduct {
 
 quantity:number,
-
-product:IProduct
-
-
+product:Iproduct
 }
