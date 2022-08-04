@@ -8,7 +8,7 @@ import { FirebaseService } from './firebase.service';
 })
 export class ProductsService {
   products:any[]=[]
-  constructor(private fireStore: FirebaseService) {
+  constructor(private fireStore: FirebaseService,private store: AngularFirestore) {
     
     this.fireStore.getproducts().subscribe((products) => {
       let prods: any = [];
@@ -29,7 +29,7 @@ export class ProductsService {
       return this.products.filter((p) => p.category == cat);;
     }
   }
-<<<<<<< HEAD
+
   getProductsBySellerCode(code:number):Iproduct[]
   {
 
@@ -37,7 +37,7 @@ export class ProductsService {
 
   }
 
-=======
+
 
   getProductById(productId: string) {
     return this.store.collection("Products").doc(productId).snapshotChanges();
@@ -47,7 +47,6 @@ export class ProductsService {
   // {
   //   this.store.collection("Products").add(product);
   // }
->>>>>>> 365f31c34669434adfd04a5b69ecf28a87dbef86
 }
 
 

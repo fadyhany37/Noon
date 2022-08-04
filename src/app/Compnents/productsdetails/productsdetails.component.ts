@@ -75,7 +75,7 @@ newpro: any = {};
         },
         () => {
           Swal.fire("Product added to your cart", "Click the button to see you cart", "success").then(() => {
-            this._router.navigateByUrl("/egypt-en/cart");
+            this._router.navigateByUrl("/src/app/Compnents/pages/cart2/cart2.component.html");
             this.ngOnInit(); 
           });
         }
