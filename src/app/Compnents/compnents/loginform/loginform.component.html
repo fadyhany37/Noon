@@ -1,1 +1,108 @@
-<p>loginform works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" [formGroup]="userForm">
+					<span id="s1">
+						Welcome Back!
+					</span>
+
+					<span id="s2">
+						Sign in to your account
+					</span>
+
+					<span id="s3">
+						<h6>Don't have an account? <a href="/register">Sign Up</a></h6>
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<input class="input100" type="email" name="email" formControlName="email"
+							[class.is-valid]="userForm.get('email')?.valid"
+							[class.is-invalid]="userForm.get('email')?.invalid">
+						<span class="focus-input100"> Email</span>
+					</div>
+					<div [hidden]="userForm.get('email')?.valid ||userForm.get('email')?.untouched"
+						class="alert alert-warning">
+						<small *ngIf="userForm.get('email')?.errors?.['required']">
+							email is required
+						</small>
+						<small *ngIf="userForm.get('email')?.errors?.['pattern']">
+							  in the first put a maximum of nine lowercase letters ,
+							  in the second put"@" with any letter 
+							  and finally put"." with maximum of three lowercase letters please....
+						</small>
+					</div>
+
+
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" [type]=" showPassword ? 'text' : 'password' " name="password"
+							formControlName="password" [class.is-valid]="userForm.get('password')?.valid"
+							[class.is-invalid]="userForm.get('password')?.invalid">
+						<span class="focus-input100">
+							Password
+						</span>
+						<i class="bi bi-eye-fill" style="justify-content: end; display: flex ;font-size:30px; color:rgb(254, 238, 0)"
+							(click)='showHidePassword()'>
+							<!-- {{ showPassword ? 'Hide' : 'Show' }} Password -->
+						</i>
+					</div>
+					<!-- <span>
+					     <i class="bi bi-eye-slash-fill" style="justify-content: end; display: flex">
+						</i> 
+					</span> -->
+
+					<div [hidden]="userForm.get('password')?.valid ||userForm.get('password')?.untouched"
+						class="alert alert-warning">
+						<small *ngIf="userForm.get('password')?.errors?.['required']">
+							password is required
+						</small>
+						<small *ngIf="userForm.get('password')?.errors?.['pattern']">
+							minimum eight capital or small charachters....
+						</small>
+					</div>
+
+
+
+					<div class="text-center p-t-90">
+						<a class="txt1" href="/forgetPassword" id="forget">
+							Forgot your password?
+						</a>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="button" (click)="login()">
+							SIGN IN
+						</button>
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- <div>
+		<div>
+			<hr>
+			<h2> {{ userForm.value | json}}</h2>
+		</div>
+	</div> -->
+
+
+
+</body>
+
+</html>

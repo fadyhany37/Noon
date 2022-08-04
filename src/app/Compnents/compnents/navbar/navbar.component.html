@@ -158,10 +158,18 @@
           <div class="nav-item d-flex language">
             <a class="nav-link lang" href="#">العربيه</a>
           </div>
-          <div class="nav-item sign d-flex">
-            <a class="nav-link" href="#">Sign up</a>
+
+
+          <div class="nav-item sign d-flex"  *ngIf="!isUser">
+            <a class="nav-link" href="#" routerLink="/login">Sign In</a>
             <i class="fa fa-user"></i>
           </div>
+          <div class="nav-item sign d-flex"  *ngIf="isUser">
+            <a class="nav-link" href="#" routerLink="/logout">Sign Out</a>
+            <i class="fa fa-user"></i>
+          </div>
+
+
           <div class="nav-item cart d-flex">
             <a class="nav-link">Cart</a>
             <div class="d-flex flex-column icon">

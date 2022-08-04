@@ -1,1 +1,128 @@
-<p>registerform works!</p>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" [formGroup]="userFormGroup">
+
+					<h4 id="s2">Creat an account </h4>
+					<h4 id="s1">Already have an account? <a href="/login"> sign in</a> </h4> 
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<!-- <input class="input100" type="email" #emailInput="ngModel" name="email" [(ngModel)]="email" required pattern="[a-z0-9]+@[a-zA-Z]+\.[a-z]{2,3}" > -->
+						<input class="input100" type="email" name="email"  formControlName="email" [class.is-valid]="userFormGroup.get('email')?.valid" [class.is-invalid]="userFormGroup.get('email')?.invalid" >
+						<span class="focus-input100"> Email</span>
+					</div>
+                     <div [hidden]="userFormGroup.get('email')?.valid ||userFormGroup.get('email')?.untouched" class="alert alert-warning">
+						<small *ngIf="userFormGroup.get('email')?.errors?.['required']">
+                          Email is required
+						</small>
+						<small *ngIf="userFormGroup.get('email')?.errors?.['pattern']">
+							in the first put a maximum of nine lowercase letters ,
+							in the second put"@" with any letter 
+							and finally put"." with maximum of three lowercase letters please....
+						</small> 
+					   </div>  
+
+
+
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<!-- <input  class="input100" type="password" #passInput="ngModel" name="password" [(ngModel)]="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> -->
+						<input  class="input100" type="password"  name="password" formControlName="password" [class.is-valid]="userFormGroup.get('password')?.valid" [class.is-invalid]="userFormGroup.get('password')?.invalid">
+						<span class="focus-input100">Password</span>
+						<i class="bi bi-eye-fill" style="justify-content: end; display: flex ;font-size:30px; color: rgb(254, 238, 0)"
+							(click)='showHidePassword()'>
+							<!-- {{ showPassword ? 'Hide' : 'Show' }} Password -->
+						</i>
+					</div>
+					 <div [hidden]="userFormGroup.get('password')?.valid ||userFormGroup.get('password')?.untouched" class="alert alert-warning">
+						<small *ngIf="userFormGroup.get('password')?.errors?.['required']">
+							Password is required
+						</small>
+						<small *ngIf="userFormGroup.get('password')?.errors?.['pattern']">
+							minimum eight capital or small charachters....
+						</small> 
+					   </div> 
+
+
+
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<!-- <input class="input100" type="text" #fnameInput="ngModel" name="firstname" [(ngModel)]="firstname"  required  pattern="^[a-zA-Z]{3,}$"> -->
+						<input class="input100" type="text"  name="firstname" formControlName="firstname" [class.is-valid]="userFormGroup.get('firstname')?.valid" [class.is-invalid]="userFormGroup.get('firstname')?.invalid">
+						<span class="focus-input100"> First Name</span>
+					</div>
+					 <div [hidden]="userFormGroup.get('firstname')?.valid ||userFormGroup.get('firstname')?.untouched" class="alert alert-warning">
+						<small *ngIf="userFormGroup.get('firstname')?.errors?.['required']">
+							Firstname is required
+						</small>
+						<small *ngIf="userFormGroup.get('firstname')?.errors?.['pattern']">
+							Minimum three charachters, at least one uppercase letter,one lowercase letter
+						</small> 
+					   </div> 
+
+					 
+
+
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						<!-- <input class="input100" type="text" #lnameInput="ngModel" name="lastname" [(ngModel)]="lastname" required pattern="^[a-zA-Z]{3,}$" > -->
+						<input class="input100" type="text"  name="lastname" formControlName="lastname" [class.is-valid]="userFormGroup.get('lastname')?.valid" [class.is-invalid]="userFormGroup.get('lastname')?.invalid" >
+						<span class="focus-input100"> Last Name</span>
+					</div>
+					<div [hidden]="userFormGroup.get('lastname')?.valid ||userFormGroup.get('lastname')?.untouched" class="alert alert-warning">
+						<small *ngIf="userFormGroup.get('lastname')?.errors?.['required']">
+							Firstname is required
+						</small>
+						<small *ngIf="userFormGroup.get('lastname')?.errors?.['pattern']">
+							Minimum three charachters, at least one uppercase letter,one lowercase letter
+						</small> 
+					   </div> 
+					
+
+					<div id="radio1" class="form-check">
+						<input class="form-check-input" type="radio" name="type" formControlName="type" id="flexRadioDefault1" value="seller">
+						<label class="form-check-label" for="flexRadioDefault1">
+						  SELLER
+						</label>
+					  </div>
+					  <div id="radio2" class="form-check">
+						<input class="form-check-input" type="radio" name="type" formControlName="type" id="flexRadioDefault2" checked value="buyer">
+						<label class="form-check-label" for="flexRadioDefault2">
+						  BUYER
+						</label>
+					  </div>
+					
+
+					<div class="container-login100-form-btn" style="margin-top:20px; margin-bottom:20px; ; ">
+						<button type="submit" class="login100-form-btn "(click)="register()">
+							CREAT AN ACCOUNT
+						</button>
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- <div>
+		<hr>
+		<h2> {{ userFormGroup.value | json}}</h2>
+	</div> -->
+
+
+
+</body>
+
+</html>

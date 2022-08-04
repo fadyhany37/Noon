@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { stringLength } from '@firebase/util';
+import { AuthservicesService } from 'src/app/services/authservices.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isOpen:boolean=false
+  isUser:boolean=false
+
+  constructor(private as:AuthservicesService) { }
 
   ngOnInit(): void {
-  }
+  //   this.as.user.subscribe( user =>{
 
+  //     if(user)
+  //     {
+  //       this.isUser=true
+  //     }
+  //     else
+  //     {
+  //       this.isUser=false
+  //     }
+  //   })
+  // }
+
+  // toggleNavbar()
+  // {
+  //      this.isOpen=! this.isOpen
+  // }
+
+  // logout()
+  // {
+  // this.as.logout()
+  // }
+
+}
 }

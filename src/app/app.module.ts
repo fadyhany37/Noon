@@ -20,6 +20,7 @@ import { NotFoundComponent } from './Compnents/pages/not-found/not-found.compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginformComponent } from './Compnents/compnents/loginform/loginform.component';
 import { RegisterformComponent } from './Compnents/compnents/registerform/registerform.component';
+import { SignoutComponent } from './Compnents/compnents/signout/signout.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +38,14 @@ import { RegisterformComponent } from './Compnents/compnents/registerform/regist
     NotFoundComponent,
     LoginformComponent,
     RegisterformComponent,
+    SignoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    FormsModule,
     SwiperModule,
     ReactiveFormsModule,
   ],
