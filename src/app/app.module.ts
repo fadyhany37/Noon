@@ -5,9 +5,9 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Compnents/home/home.component';
-import { AllproductsComponent } from './Compnents/allproducts/allproducts.component';
-import { ProductsdetailsComponent } from './Compnents/productsdetails/productsdetails.component';
+import { HomeComponent } from 'src/app/Compnents/pages/home/home.component'
+import { AllproductsComponent } from 'src/app/Compnents/pages/allproducts/allproducts.component';
+import { ProductsdetailsComponent } from 'src/app/Compnents/pages/productsdetails/productsdetails.component';
 import { FilterPipe } from './filter.pipe';
 
 @NgModule({
