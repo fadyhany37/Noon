@@ -3,6 +3,7 @@ import { NoonProducts } from 'src/app/Models/noon-products';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-allproducts',
@@ -13,7 +14,7 @@ import { BehaviorSubject } from 'rxjs';
 
 })
 export class AllproductsComponent implements OnInit {
-  constructor(private AllProducts: ProductsService, private router: Router) {}
+  constructor(private AllProducts: ProductsService, private router: Router,private fireStore: FirebaseService) {}
 // term:BehaviorSubject<any> = new BehaviorSubject('')
 termSec:string = ''
   ShowProductDetails(productid: any): void {
@@ -115,7 +116,7 @@ termSec:string = ''
 
 
 
-    this.AllProducts.getproducts().subscribe((ArrayOfProducts) => {
+    this.fireStore.getproducts().subscribe((ArrayOfProducts) => {
       let prods: any = [];
       for (let pro of ArrayOfProducts) {
         prods.push({

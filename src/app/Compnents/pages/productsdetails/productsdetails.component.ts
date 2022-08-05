@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { NoonProducts } from 'src/app/Models/noon-products';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class ProductsdetailsComponent implements OnInit {
 
 
 
-  constructor(private AllProducts: ProductsService, private router:Router, private ActiveRouter:ActivatedRoute) {}
+  constructor(private AllProducts: ProductsService, private router:Router, private ActiveRouter:ActivatedRoute,private fireStore: FirebaseService) {}
 
 //   quantity:number=1;
 // i=1
@@ -217,7 +218,7 @@ newpro: any = {};
     this.IdRecived = paramMap.get('productid');
     if (this.IdRecived)
     this.myproduct=
-    this.AllProducts.getProductById(this.IdRecived).subscribe((pro) => {
+    this.fireStore.getProductById(this.IdRecived).subscribe((pro:any) => {
       this.newpro = { id: pro.payload.id, ...pro.payload.data() as object };
     })
 
