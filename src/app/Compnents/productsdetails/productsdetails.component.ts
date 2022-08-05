@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { NoonProducts } from 'src/app/Interface/noon-products';
+import { NoonProducts } from 'src/app/Models/noon-products';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./productsdetails.component.scss']
 })
 export class ProductsdetailsComponent implements OnInit {
- 
- 
+
+
 
   constructor(private AllProducts: ProductsService, private router:Router, private ActiveRouter:ActivatedRoute) {}
 
@@ -26,7 +26,7 @@ export class ProductsdetailsComponent implements OnInit {
 //   if(this.i!=1){
 //     this.i--;
 //     this.quantity=this.i;
-//   } 
+//   }
 // }
 
 newpro: any = {};
@@ -34,12 +34,12 @@ newpro: any = {};
    IdRecived: any;
 
 
-   
+
   DecreaseFromStock(newpro:any) {
       newpro.stock --;
     }
 
-   
+
   //  ArrayOfProducts: any[] = [
     // {
     //   id:'mariam',
@@ -196,7 +196,7 @@ newpro: any = {};
     //   title: 'Chain Pin Tassel Earrings',
     // },
   // ];
-  
+
 
   ngOnInit(): void {
     // this.AllProducts.getproducts().subscribe((ArrayOfProducts) => {
@@ -204,19 +204,19 @@ newpro: any = {};
     //     for(let pro of ArrayOfProducts){
     //       prods.push({id:pro.payload.doc.id,...pro.payload.doc.data()as object});
     //     }
-  
+
     //     this.ArrayOfProducts = prods;
     //   }
     //   );
 
- 
+
 
 
 
   this.ActiveRouter.paramMap.subscribe(paramMap => {
     this.IdRecived = paramMap.get('productid');
     if (this.IdRecived)
-    this.myproduct= 
+    this.myproduct=
     this.AllProducts.getProductById(this.IdRecived).subscribe((pro) => {
       this.newpro = { id: pro.payload.id, ...pro.payload.data() as object };
     })

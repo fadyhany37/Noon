@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NoonProducts } from 'src/app/Interface/noon-products';
+import { NoonProducts } from 'src/app/Models/noon-products';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./allproducts.component.scss'],
 
 
-  
+
 })
 export class AllproductsComponent implements OnInit {
   constructor(private AllProducts: ProductsService, private router: Router) {}
@@ -102,9 +102,9 @@ termSec:string = ''
   getValue(e:any) {
     this.termSec = e.target.getAttribute('data-name'); ;
     // console.log(this.term.getValue());
-    
+
   }
-  
+
   ngOnInit(): void {
 //     this.term.subscribe({
 //       next:()=> {
@@ -121,10 +121,10 @@ termSec:string = ''
         prods.push({
           id: pro.payload.doc.id,
           ...(pro.payload.doc.data() as object),
-          
+
         });
       }
-     
+
       this.ArrayOfProducts = prods;
     });
   }
