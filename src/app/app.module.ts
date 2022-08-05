@@ -18,6 +18,9 @@ import { ProfileComponent } from './Compnents/pages/profile/profile.component';
 import { LayoutComponent } from './Compnents/pages/layout/layout.component';
 import { NotFoundComponent } from './Compnents/pages/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AllproductsComponent } from 'src/app/Compnents/pages/allproducts/allproducts.component';
+import { ProductsdetailsComponent } from 'src/app/Compnents/pages/productsdetails/productsdetails.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     LayoutComponent,
     NotFoundComponent,
+    AllproductsComponent,
+    ProductsdetailsComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
