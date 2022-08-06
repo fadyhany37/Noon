@@ -39,10 +39,7 @@
          <div *ngIf="newpro.rating>4.8" class="best-seller">
             Best Seller
           </div>
-             <i
-                class="fa-solid fa-bookmark position-absolute top-0 start-0 ms-1"
-             ></i>
-          
+             
           <h6 class="text-muted my-2">{{newpro.brand}}</h6>
           <h4 class="text-dark">{{newpro.description}}</h4>
           <div class="d-flex gap-3">
@@ -114,9 +111,9 @@
           <div>
              <h4 class="my-3">Quantity</h4>
              <div class="hstack gap-3">
-               
+
                 <span class="display-6 btn">{{newpro.stock}}</span>
-               
+
                 <button class="btn btn-primary py-2 flex-grow-1" (click)="DecreaseFromStock(newpro.stock)" >
                    Add To Cart
                 </button>

@@ -210,7 +210,7 @@ newpro: any = {};
     //   }
     //   );
 
-
+    scrollTo(0, 0);
 
 
 
