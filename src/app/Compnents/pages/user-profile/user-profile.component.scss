@@ -64,25 +64,24 @@
     align-items: center;
     }
   }
-.buttons{
-  margin-top: 20px;
-  text-align: center;
-    padding: 20px;
-  .btn{
-    background-color: #FFF;
-    color: #000;
-    font-size: 18px;
-    font-weight: bold;
-    transition: all 0.5s ease-in-out;
   }
-  .btn:hover{
-    color: #FFF;
-    background-color: rgb(64, 69, 83);
+
+}
+.tab{
+  padding: 10px 15px;
+  background-color: #FFF;
+  width: 270px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  transition: all 0.5s ease-in-out;
+  i{
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  span{
+    font-size: 18px;
   }
 }
-  }
-  .userData{
-    background-image: linear-gradient( rgb(255 254 156), rgb(247, 247, 250));
-    padding: 50px 0;
-  }
+.tab:hover{
+  transform: scale(1.1);
 }

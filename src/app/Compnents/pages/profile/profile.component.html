@@ -1,31 +1,10 @@
-  <div class="profile w-100">
+<div class="profile w-100">
   <div class="info">
     <div class="container-fluid">
-      <div class="row">
-        <div class="editProfile" (click)="openRegisterForm()">
-          <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
-        </div>
-        <div class="col-md-6">
-          <div class="imgCon">
-            <img [src]="user.image" class="img" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div
-            class="d-flex flex-column h-100 justify-content-center infoContent"
-          >
-            <h2 class="mb-2">Hi, {{ user.name }}</h2>
-            <h4 class="mb-2">Let's Manage Your Account</h4>
-            <div class="buttons">
-              <button class="btn me-2" (click)="addingFunction()">
-                Add Product
-              </button>
-              <button class="btn" (click)="showFunction()">
-                Show Products
-              </button>
-            </div>
-          </div>
-        </div>
+      <app-user-profile></app-user-profile>
+      <div class="buttons m-auto">
+        <button class="btn me-2" (click)="addingFunction()">Add Product</button>
+        <button class="btn" (click)="showFunction()">Show Products</button>
       </div>
     </div>
   </div>
@@ -33,18 +12,11 @@
     <div *ngIf="adding">
       <app-add-product [product]="product" [update]="update"></app-add-product>
     </div>
-    <div class="w-100 my-5 " *ngIf="!adding">
-      <app-products-swiper [products]="sellerProducts" [sellerCode]="sellerCode" ></app-products-swiper>
+    <div class="w-100 my-5" *ngIf="!adding">
+      <app-products-swiper
+        [products]="sellerProducts"
+        [sellerCode]="sellerCode"
+      ></app-products-swiper>
     </div>
-
-
   </div>
- </div>
-
-
-
-
-
-
-
-
+</div>

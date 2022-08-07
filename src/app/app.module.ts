@@ -21,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllproductsComponent } from 'src/app/Compnents/pages/allproducts/allproducts.component';
 import { ProductsdetailsComponent } from 'src/app/Compnents/pages/productsdetails/productsdetails.component';
 import { FilterPipe } from './filter.pipe';
+import { UserProfileComponent } from './Compnents/pages/user-profile/user-profile.component';
+import { UpdateUserComponent } from './Compnents/pages/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { FilterPipe } from './filter.pipe';
     NotFoundComponent,
     AllproductsComponent,
     ProductsdetailsComponent,
-    FilterPipe
+    FilterPipe,
+    UserProfileComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,

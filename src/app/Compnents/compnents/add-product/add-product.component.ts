@@ -1,5 +1,11 @@
 import { Iproduct } from './../../../Models/iproduct';
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -15,9 +21,8 @@ import { FirebaseService } from 'src/app/services/firebase.service';
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss'],
 })
-export class AddProductComponent implements OnInit,OnChanges {
-
-   pId:string=""
+export class AddProductComponent implements OnInit, OnChanges {
+  pId: string = '';
 
   @Input() product!: any;
 
@@ -26,7 +31,11 @@ export class AddProductComponent implements OnInit,OnChanges {
   stringPattern = /^[A-Za-z]+[A-Za-z0-9@:%._\+~#= ]+$/;
   usrFormGroup: FormGroup;
   myPassword: any;
-  constructor(private router: Router, private fb: FormBuilder,private fireStore: FirebaseService) {
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private fireStore: FirebaseService
+  ) {
     this.usrFormGroup = this.fb.group({
       title: ['', Validators.required],
       description: ['', [Validators.required, Validators.minLength(20)]],
@@ -35,12 +44,14 @@ export class AddProductComponent implements OnInit,OnChanges {
       brand: ['', Validators.required],
       rating: ['', [Validators.required, Validators.min(1), Validators.max(9)]],
       price: ['', [Validators.required, Validators.min(1)]],
-      discountPercentage: ['',[Validators.required, Validators.min(1), Validators.max(60)],],
+      discountPercentage: [
+        '',
+        [Validators.required, Validators.min(1), Validators.max(60)],
+      ],
       thumbnail: ['', Validators.required],
       category: ['', Validators.required],
     });
   }
-
 
   get title() {
     return this.usrFormGroup.get('title');
@@ -83,33 +94,27 @@ export class AddProductComponent implements OnInit,OnChanges {
     this.images.removeAt(-1);
   }
 
-  addProduct(e:Event) {
-
+  addProduct(e: Event) {
     if (this.update) {
-      this.product = this.usrFormGroup.value ;
-      this.fireStore.updateproduct(this.pId, this.product)
+      this.product = this.usrFormGroup.value;
+      this.fireStore.updateproduct(this.pId, this.product);
 
-      alert(`${this.product.title} is updated`)
+      alert(`${this.product.title} is updated`);
 
-      this.router.navigate(['/Profile'])
+      this.router.navigate(['/Profile']);
+    } else {
+      this.product = this.usrFormGroup.value;
+      this.fireStore.addproduct(this.product);
+      alert(`${this.product.title} is added`);
+      this.usrFormGroup.reset();
     }
-    else {
-
-    this.product = this.usrFormGroup.value;
-      this.fireStore.addproduct(this.product)
-      alert(`${this.product.title} is added`)
-      this.usrFormGroup.reset()
-
-  }
   }
 
-
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   ngOnChanges(): void {
-
     if (this.product.images) {
-      console.log("again");
+      console.log('again');
 
       this.title?.setValue(this.product.title);
       this.description?.setValue(this.product.description);
@@ -120,18 +125,14 @@ export class AddProductComponent implements OnInit,OnChanges {
       this.discountPercentage?.setValue(this.product.discountPercentage);
       this.thumbnail?.setValue(this.product.thumbnail);
       this.category?.setValue(this.product.category);
-      this.images.at(0).setValue(this.product.images[0])
+      this.images.at(0).setValue(this.product.images[0]);
       for (let i = 1; i < this.product.images.length; i++) {
-        this.images.push(this.fb.control(this.product.images[i], Validators.required));
+        this.images.push(
+          this.fb.control(this.product.images[i], Validators.required)
+        );
       }
       this.pId = this.product.id;
-      this.product ={}
-
+      this.product = {};
     }
-
-
-
   }
 }
-
-
