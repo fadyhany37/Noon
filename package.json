@@ -25,6 +25,8 @@
     "bootstrap-icons": "^1.8.3",
     "font-awesome": "^4.7.0",
     "popper.js": "^1.16.1",
+    "modules": "^0.4.0",
+    "node": "^18.5.0",
     "rxjs": "~7.5.0",
     "swiper": "^8.3.0",
     "tslib": "^2.3.0",

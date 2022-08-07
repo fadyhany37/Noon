@@ -10,7 +10,7 @@ import { FirebaseService } from './firebase.service';
 export class ProductsService {
   products:any[]=[]
   constructor(private fireStore: FirebaseService) {
-    
+
     this.fireStore.getproducts().subscribe((products) => {
       let prods: any = [];
       for (let prod of products) {
@@ -40,6 +40,12 @@ export class ProductsService {
 
 
 
+
+ 
+  // addproduct(product:any)
+  // {
+  //   this.store.collection("Products").add(product);
+  // }
 }
 
 
