@@ -4,17 +4,15 @@ import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-allproducts',
   templateUrl: './allproducts.component.html',
   styleUrls: ['./allproducts.component.scss'],
-
-
-
 })
 export class AllproductsComponent implements OnInit {
-  constructor(private AllProducts: ProductsService, private router: Router,private fireStore: FirebaseService) {}
+  constructor(private AllProducts: ProductsService, private router: Router,private fireStore: FirebaseService,public translate: TranslateService) {}
 // term:BehaviorSubject<any> = new BehaviorSubject('')
 termSec:string = ''
   ShowProductDetails(productid: any): void {
