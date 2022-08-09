@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { NoonProducts } from 'src/app/Models/noon-products';
+import { CartService } from 'src/app/services/cart.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -11,9 +12,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsdetailsComponent implements OnInit {
 
-
-
-  constructor(private AllProducts: ProductsService, private router:Router, private ActiveRouter:ActivatedRoute,private fireStore: FirebaseService) {}
+  constructor(private AllProducts: ProductsService, private router:Router, private ActiveRouter:ActivatedRoute,private fireStore: FirebaseService,private cartService:CartService) {}
 
 //   quantity:number=1;
 // i=1
@@ -225,6 +224,9 @@ newpro: any = {};
     console.log(this.newpro);
     console.log(this.IdRecived);
 
+    this.newpro.forEach((a:any)=>{
+      Object.assign(a,{quantity:1,total:a.price})
+    })
 
 
   })
@@ -234,5 +236,7 @@ newpro: any = {};
 
 
   }
-
+  addToCart(item:any){
+    this.cartService.addToCart(item);
+  }
 }

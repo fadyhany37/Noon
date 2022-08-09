@@ -1,0 +1,194 @@
+.footerSection .upper {
+  background-color: #f7f7fa;
+  padding: 20px 20px 0 20px;
+  border-bottom: 1px solid #b8babf;
+}
+
+.footerSection .upper .upperLeft h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #404553;
+}
+
+.footerSection .upper .upperLeft p {
+  font-size: 1rem;
+  color: #7e859b;
+  margin-top: 5px;
+}
+
+.footerSection .upper .upperRight .contactWays {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  padding: 0 10px 10px 0;
+}
+
+.footerSection .upper .upperRight .contactWays p {
+  border: 1px solid #e2e5f1;
+  background-color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 10px 10px 0 0;
+}
+
+.footerSection .upper .upperRight .contactWays p i {
+  font-size: 22px;
+}
+
+.footerSection .upper .upperRight .contactWays .content {
+  display: inline-block;
+}
+
+.footerSection .upper .upperRight .contactWays .content h5 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #7e859b;
+}
+
+.footerSection .upper .upperRight .contactWays .content a {
+  text-decoration: none;
+}
+
+.footerSection .upper .upperRight .contactWays .content a h3 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #404553;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.footerSection .upper .upperRight .contactWays:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.footerSection .middel {
+  padding: 20px;
+}
+
+.footerSection .middel .header {
+  font-weight: bold;
+  padding-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.footerSection .middel ul li {
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.footerSection .middel ul li a {
+  font-size: 0.9rem;
+  color: #7e859b;
+}
+
+.footerSection .middel ul li:hover a {
+  color: #000;
+}
+
+.footerSection .lower h4 {
+  font-weight: bold;
+  color: #404553;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.footerSection .lower .myLink img {
+  height: 35px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.footerSection .lower .myLink img:hover {
+  opacity: .8;
+}
+
+.footerSection .lower ul li {
+  margin: 0 7px;
+}
+
+.footerSection .lower ul li p {
+  border: 1px solid #e2e5f1;
+  background-color: #feee00;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.footerSection .lower ul li p i {
+  font-size: 25px;
+}
+
+.footerSection .lower ul li p:hover {
+  background-color: #404553;
+  color: yellow;
+}
+
+.footerSection .copyRight {
+  background-color: #f7f7fa;
+  padding: 20px 20px 40px 20px;
+  border-top: 1px solid #b8babf;
+}
+
+.footerSection .copyRight .copyText {
+  padding-left: 10px;
+}
+
+.footerSection .copyRight .copyText p {
+  font-size: 1rem;
+  color: #7e859b;
+  margin-top: 5px;
+}
+
+.footerSection .copyRight .payWays ul li {
+  margin-right: 25px;
+}
+
+.footerSection .copyRight .payWays ul li img {
+  height: 15px;
+}
+
+.footerSection .copyRight .links .myLink {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #7e859b;
+  padding: 7px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.footerSection .copyRight .links .myLink:hover {
+  color: #000;
+}
+/*# sourceMappingURL=footer.component.css.map */

@@ -21,7 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllproductsComponent } from 'src/app/Compnents/pages/allproducts/allproducts.component';
 import { ProductsdetailsComponent } from 'src/app/Compnents/pages/productsdetails/productsdetails.component';
 import { FilterPipe } from './filter.pipe';
-
+import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './Compnents/pages/cart/cart.component';
+import { OrderSummryComponent } from './Compnents/pages/cart/order-summry/order-summry.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,9 @@ import { FilterPipe } from './filter.pipe';
     NotFoundComponent,
     AllproductsComponent,
     ProductsdetailsComponent,
-    FilterPipe
+    FilterPipe,
+    CartComponent,
+    OrderSummryComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +51,7 @@ import { FilterPipe } from './filter.pipe';
     AngularFirestoreModule,
     SwiperModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

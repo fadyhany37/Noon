@@ -1,0 +1,222 @@
+.myNav {
+  font-size: 16px;
+  background-color: #feee00;
+  /* ******************************************* */
+}
+
+.myNav .nav-link {
+  color: #404553;
+}
+
+.myNav .nav-item {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.myNav .nav-item:hover {
+  border-bottom: 1px solid #000;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.myNav .upperNav {
+  display: none;
+}
+
+.myNav .upperNav .left .col-9 {
+  margin-top: 5px;
+}
+
+.myNav .upperNav .left .lang {
+  line-height: 1.5;
+  margin-top: 15px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.myNav .upperNav .left .place {
+  font-weight: normal;
+  font-size: 14px;
+  color: #404553;
+}
+
+.myNav .upperNav .left .selected {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.myNav .upperNav .right .col-6 {
+  margin-top: 15px;
+}
+
+.myNav .upperNav .right span {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 5px;
+  color: #404553;
+}
+
+.myNav .lowerNav .navbar-brand img {
+  height: 24px;
+}
+
+.myNav .lowerNav .search {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.myNav .lowerNav .search .flag {
+  height: 20px;
+  margin: auto;
+}
+
+.myNav .lowerNav .search .location {
+  margin-left: 10px;
+}
+
+.myNav .lowerNav .search .location .place {
+  font-size: 14px;
+}
+
+.myNav .lowerNav .search .location .place i {
+  font-size: 16px !important;
+}
+
+.myNav .lowerNav .search .location .selected {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.myNav .lowerNav .search .searchArea {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+}
+
+.myNav .lowerNav .search .searchArea .search-field {
+  margin-top: 12px;
+}
+
+.myNav .lowerNav .search .searchArea .search-field .mybtn {
+  color: #404553;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  right: 10px;
+  font-size: 21px;
+  border: none;
+  background: transparent;
+}
+
+.myNav .lowerNav .search .searchArea .search-field .mybtn:hover {
+  background-color: #c5b803;
+  color: #fff;
+}
+
+.myNav .lowerNav .search .searchArea:hover {
+  border: none;
+}
+
+.myNav .lowerNav .navbar-nav {
+  font-weight: 700;
+}
+
+.myNav .lowerNav .navbar-nav .lang {
+  font-family: "Cairo";
+  cursor: pointer;
+}
+
+.myNav .lowerNav .navbar-nav .lang::after {
+  content: "";
+  border: 1px solid #404553;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.myNav .lowerNav .navbar-nav .sign i {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #404553;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.myNav .lowerNav .navbar-nav .sign i:hover {
+  color: #000;
+}
+
+.myNav .lowerNav .navbar-nav .sign::after {
+  content: "";
+  border: 1px solid #404553;
+  height: 20px;
+  margin: auto;
+  margin-left: 10px;
+}
+
+.myNav .lowerNav .navbar-nav .cart .icon {
+  position: relative;
+}
+
+.myNav .lowerNav .navbar-nav .cart .icon span {
+  position: absolute;
+  left: 10px;
+  bottom: 12px;
+  color: #fff;
+  padding: 0 5px;
+  border-radius: 50%;
+}
+
+.myNav .lowerNav .navbar-nav .cart .icon i {
+  font-size: 38px;
+  color: #404553;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.myNav .lowerNav .navbar-nav .cart .icon i:hover {
+  color: #000;
+}
+
+@media (max-width: 992px) {
+  .myNav .upperNav {
+    display: block;
+  }
+  .myNav .lowerNav {
+    padding-right: 0 !important;
+  }
+  .myNav .lowerNav .navbar {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .myNav .lowerNav .navbar .left-nav {
+    font-size: 14px;
+    padding-left: 0 !important;
+  }
+  .myNav .lowerNav .search .location {
+    display: none;
+  }
+  .myNav .lowerNav .language {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .myNav .upperNav .right {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .myNav .lowerNav .navbar-brand img {
+    height: 20px;
+  }
+  .myNav .lowerNav .search {
+    width: 100px;
+  }
+  .myNav .lowerNav .left-nav .nav-link {
+    font-size: 0.8rem;
+  }
+}
+/*# sourceMappingURL=navbar.component.css.map */
