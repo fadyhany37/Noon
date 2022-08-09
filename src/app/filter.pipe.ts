@@ -5,10 +5,22 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(list:any[],term:string): any {
+  transform(list: any[], term: string): any {
+    console.log(list);
     console.log(term);
-    
-    return list.filter((item)=>item.category.toLowerCase().includes(term.toLowerCase()))
+    if (term) {
+      return list.filter((item) => {
+        if (item.category) {
+         return item.category.toLowerCase().includes(term.toLowerCase())
+        }
+      })
+    }
+    else
+    {
+      return list;
+      }
+
+
   }
 
 }

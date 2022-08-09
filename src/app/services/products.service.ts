@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { Iproduct } from '../Models/iproduct';
+import { Iproduct } from '../Compnents/pages/profile/Models/iproduct';
 import { FirebaseService } from './firebase.service';
 
 @Injectable({
@@ -41,7 +41,7 @@ export class ProductsService {
 
 
 
- 
+
   // addproduct(product:any)
   // {
   //   this.store.collection("Products").add(product);

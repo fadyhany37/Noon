@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NoonProducts } from 'src/app/Models/noon-products';
+import { NoonProducts } from 'src/app/Compnents/pages/profile/Models/noon-products';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -14,14 +14,18 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 
 })
 export class AllproductsComponent implements OnInit {
-  constructor(private AllProducts: ProductsService, private router: Router,private fireStore: FirebaseService) {}
+
+  ArrayOfProducts: any[]=[];
+  constructor(private AllProducts: ProductsService, private router: Router, private fireStore: FirebaseService) {
+
+  }
 // term:BehaviorSubject<any> = new BehaviorSubject('')
-termSec:string = ''
+   termSec:string =""
   ShowProductDetails(productid: any): void {
     this.router.navigate(['productsdetails', productid]);
   }
 
-    ArrayOfProducts: any[] = []
+
   //     {
   //       id:'mariam',
   //     brand:'Cuff Butterfly',
@@ -107,6 +111,8 @@ termSec:string = ''
   }
 
   ngOnInit(): void {
+console.log(this.ArrayOfProducts);
+
 //     this.term.subscribe({
 //       next:()=> {
 // this.termSec = this.term.getValue()
@@ -116,7 +122,7 @@ termSec:string = ''
 
 
 
-    this.fireStore.getproducts().subscribe((ArrayOfProducts) => {
+      this.fireStore.getproducts().subscribe((ArrayOfProducts) => {
       let prods: any = [];
       for (let pro of ArrayOfProducts) {
         prods.push({
@@ -128,5 +134,5 @@ termSec:string = ''
 
       this.ArrayOfProducts = prods;
     });
-  }
+    }
 }
