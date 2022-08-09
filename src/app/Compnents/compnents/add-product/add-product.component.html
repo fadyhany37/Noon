@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="mb-3">
-        <label for="usrName" class="form-label">Title</label>
+        <label for="usrName" class="form-label">{{"Title" | translate}}</label>
         <input
           type="text"
           class="form-control"
@@ -23,14 +23,14 @@
           class="alert alert-warning"
           [hidden]="title?.valid || title?.untouched"
         >
-          <span *ngIf="title?.errors?.['required']">title is required</span>
-          <span *ngIf="title?.errors?.['pattern']">title must be string</span>
+          <span *ngIf="title?.errors?.['required']">{{"title is required" | translate}}</span>
+          <span *ngIf="title?.errors?.['pattern']">{{"title must be string" | translate}}</span>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
+        <label for="description" class="form-label">{{"Description" | translate}}</label>
         <input
           type="text"
           class="form-control"
@@ -46,13 +46,13 @@
           [hidden]="description?.valid || description?.untouched"
         >
           <span *ngIf="description?.errors?.['required']"
-            >description is required</span
+            >{{"description is required" | translate}}</span
           >
           <span *ngIf="description?.errors?.['pattern']"
-            >description must be string</span
+            >{{"description must be string" | translate}}</span
           >
           <span *ngIf="description?.errors?.['minlength']">
-            Description must be at least 20 letters</span
+            {{"Description must be at least 20 letters" | translate}}</span
           >
         </div>
       </div>
@@ -60,7 +60,7 @@
 
     <div class="col-md-6">
       <div class="mb-3">
-        <label for="stock" class="form-label">Stock</label>
+        <label for="stock" class="form-label">{{"Stock" | translate}}</label>
         <input
           type="number"
           class="form-control"
@@ -75,16 +75,16 @@
           class="alert alert-warning"
           [hidden]="stock?.valid || stock?.untouched"
         >
-          <span *ngIf="stock?.errors?.['required']">Stock is required </span>
+          <span *ngIf="stock?.errors?.['required']">{{"Stock is required" | translate}}</span>
           <span *ngIf="stock?.errors?.['min']"
-            >Stock Must be Positive Number
+            >{{"Stock Must be Positive Number" | translate}}
           </span>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="mb-3">
-        <label for="rating" class="form-label">Rating</label>
+        <label for="rating" class="form-label">{{"Rating" | translate}}</label>
         <input
           type="number"
           class="form-control"
@@ -99,17 +99,17 @@
           class="alert alert-warning"
           [hidden]="rating?.valid || rating?.untouched"
         >
-          <span *ngIf="rating?.errors?.['required']">Rating is required</span>
+          <span *ngIf="rating?.errors?.['required']">{{"Rating is required" | translate}}</span>
           <span *ngIf="rating?.errors?.['min']"
-            >Rating Must be Positive Number
+            >{{"Rating Must be Positive Number" | translate}}
           </span>
-          <span *ngIf="rating?.errors?.['max']">Rating Must not exceed 9 </span>
+          <span *ngIf="rating?.errors?.['max']">{{"Rating Must not exceed 9" | translate}}</span>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="mb-3">
-        <label for="price" class="form-label">Price</label>
+        <label for="price" class="form-label">{{"Price" | translate}}</label>
         <input
           type="number"
           class="form-control"
@@ -124,15 +124,15 @@
           class="alert alert-warning"
           [hidden]="price?.valid || price?.untouched"
         >
-          <span *ngIf="price?.errors?.['required']">price is required</span>
-          <span *ngIf="price?.errors?.['min']">price must be Positive</span>
+          <span *ngIf="price?.errors?.['required']">{{"price is required" | translate}}</span>
+          <span *ngIf="price?.errors?.['min']">{{"price must be Positive" | translate}}</span>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="mb-3">
         <label for="discountPercentage" class="form-label"
-          >Discount Percentage</label
+          >{{"Discount Percentage" | translate}}</label
         >
         <input
           type="number"
@@ -149,20 +149,20 @@
           [hidden]="discountPercentage?.valid || discountPercentage?.untouched"
         >
           <span *ngIf="discountPercentage?.errors?.['required']"
-            >Discount Percentage is required</span
+            >{{"Discount Percentage is required" | translate}}</span
           >
           <span *ngIf="discountPercentage?.errors?.['min']"
-            >Discount Percentage must be Positive</span
+            >{{"Discount Percentage must be Positive" | translate}}</span
           >
           <span *ngIf="discountPercentage?.errors?.['max']"
-            >Discount Percentage must not exceed 60</span
+            >{{"Discount Percentage must not exceed 60" | translate}}</span
           >
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="mb-3">
-        <label for="brand" class="form-label">Brand</label>
+        <label for="brand" class="form-label">{{"Brand" | translate}}</label>
         <input
           type="text"
           class="form-control"
@@ -179,14 +179,14 @@
           class="alert alert-warning"
           [hidden]="brand?.valid || brand?.untouched"
         >
-          <span *ngIf="brand?.errors?.['required']">brand is required</span>
-          <span *ngIf="brand?.errors?.['pattern']">Brand must be String</span>
+          <span *ngIf="brand?.errors?.['required']">{{"brand is required" | translate}}</span>
+          <span *ngIf="brand?.errors?.['pattern']">{{"Brand must be String" | translate}}</span>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="mb-3">
-        <label for="category" class="form-label">Category</label>
+        <label for="category" class="form-label">{{"Category" | translate}}</label>
         <input
           type="text"
           class="form-control"
@@ -203,17 +203,17 @@
           [hidden]="category?.valid || category?.untouched"
         >
           <span *ngIf="category?.errors?.['required']"
-            >Category is required</span
+            >{{"Category is required" | translate}}</span
           >
           <span *ngIf="category?.errors?.['pattern']"
-            >Category must be String</span
+            >{{"Category must be String" | translate}}</span
           >
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="mb-3">
-        <label for="thumbnail" class="form-label">thumbnail URl</label>
+        <label for="thumbnail" class="form-label">{{"thumbnail URl" | translate}}</label>
         <input
           type="text"
           class="form-control"
@@ -230,9 +230,9 @@
           [hidden]="thumbnail?.valid || thumbnail?.untouched"
         >
           <span *ngIf="thumbnail?.errors?.['required']"
-            >Thumbnail is required</span
+            >{{"Thumbnail is required" | translate}}</span
           >
-          <span *ngIf="thumbnail?.errors?.['pattern']">Enter Valid URL</span>
+          <span *ngIf="thumbnail?.errors?.['pattern']">{{"Enter Valid URL" | translate}}</span>
         </div>
       </div>
     </div>
@@ -240,7 +240,7 @@
       <div formArrayName="images">
         <div class="mb-3" *ngFor="let img of images.controls; let i = index">
           <label for="images{{ i + 1 }}" class="form-label"
-            >Images{{ i + 1 }} URL</label
+            >{{"Images" | translate}}{{ i + 1 }} {{"URL" | translate}}</label
           >
           <input
             type="text"
@@ -274,7 +274,7 @@
             [hidden]="images.controls[i].valid || images?.untouched"
           >
             <span *ngIf="images.controls[i].invalid"
-              >You must enter Valid Url</span
+              >{{"You must enter Valid Url" | translate}}</span
             >
           </div>
         </div>
@@ -282,5 +282,5 @@
     </div>
   </div>
 
-  <button type="submit" [disabled]="usrFormGroup.invalid" class="btn">Save</button>
+  <button type="submit" [disabled]="usrFormGroup.invalid" class="btn">{{"Save" | translate}}</button>
 </form>

@@ -14,14 +14,14 @@
           <div
             class="d-flex flex-column h-100 justify-content-center infoContent"
           >
-            <h2 class="mb-2">Hi, {{ user.name }}</h2>
-            <h4 class="mb-2">Let's Manage Your Account</h4>
+            <h2 class="mb-2">{{"Hi," | translate}} {{ user.name }}</h2>
+            <h4 class="mb-2">{{"Let's Manage Your Account" | translate}}</h4>
             <div class="buttons">
               <button class="btn me-2" (click)="addingFunction()">
-                Add Product
+                {{"Add Product" | translate}}
               </button>
               <button class="btn" (click)="showFunction()">
-                Show Products
+                {{"Show Products" | translate}}
               </button>
             </div>
           </div>

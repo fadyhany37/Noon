@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(private fireStore: FirebaseService,private _ProductsService:ProductsService) {
+  constructor(private fireStore: FirebaseService,private _ProductsService:ProductsService,public translate: TranslateService) {
 
 
   }
