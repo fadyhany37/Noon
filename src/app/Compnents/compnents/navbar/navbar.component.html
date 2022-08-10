@@ -160,14 +160,17 @@
           class="navbar-nav left-nav me-auto mb-2 mb-lg-0 ps-3"
           style="flex-direction: row"
         >
-          <div class="nav-item d-flex language">
+          <div class="nav-item sign d-flex language">
             <span (click)="changeCurrentLang($event)" class="btn  btn-dark">ar</span>
           </div>
 
           <div class="nav-item sign d-flex">
             <a class="nav-link" href="#">{{"Sign Up" | translate}}</a>
-            <i class="fa fa-user"></i>
           </div>
+          <div class="nav-item sign d-flex text-center">
+            <a class="nav-link" routerLink="/userProfile">
+              <i class="fa fa-user"></i></a>
+               </div>
           <div class="nav-item cart d-flex">
             <a class="nav-link" [routerLink]="['cart2']">{{"Cart" | translate}}</a>
             <div class="d-flex flex-column icon">
