@@ -37,37 +37,36 @@
        </div>
        <div class="col-md-6 col-lg-5">
          <div *ngIf="newpro.rating>4.8" class="best-seller">
-            Best Seller
+            {{"Best Seller" | translate}}
           </div>
 
           <h6 class="text-muted my-2">{{newpro.brand}}</h6>
           <h4 class="text-dark">{{newpro.description}}</h4>
           <div class="d-flex gap-3">
-             <p class="m-0">Model Number : 10001096</p>
+             <p class="m-0">{{"Model Number :" | translate}} 10001096</p>
              <span class="vr"></span>
              <span class="badge bg-green d-flex align-items-center"
-                >{{newpro.rating}}  <i class="fa-solid fa-star fa-sm"></i
-             ></span>
-             <span href="" class="m-0">Ratings</span>
+                >{{newpro.rating}}  <i class=" fa-solid fa-star fa-sm"></i></span>
+             <span href="" class="m-0">{{"Ratings" | translate}}</span>
           </div>
           <p>
-             Was:
-             <span class="text-decoration-line-through">EGP 899.00 </span>
+             {{"Was:" | translate}}
+             <span class="text-decoration-line-through">{{"EGP" | translate}} 899.00 </span>
           </p>
           <p>
-             Now:
-             <span class="fw-bold fs-3">{{newpro.price}}   EGP   </span>
-             <span class="text-muted">Inclusive of VAT</span>
+             {{"Now:" | translate}}
+             <span class="fw-bold fs-3">{{newpro.price}}   {{"EGP" | translate}}   </span>
+             <span class="text-muted"> {{"Inclusive of VAT" | translate}}</span>
           </p>
           <p>
-             Saving:
-             <span>EGP 12.70 </span>
-             <span class="text-success badge bg-green1">{{newpro.discountPercentage}}% Off</span>
+             {{"Saving:" | translate}}
+             <span>{{"EGP" | translate}} 12.70 </span>
+             <span class="text-success badge bg-green1">{{newpro.discountPercentage}}% {{"OFF" | translate}}</span>
           </p>
           <p>
              <img src="./assets/images/emi.svg" class="img-fluid" alt="icon" />
-             Monthly payment plans from EGP 43
-             <a href="">View more details </a>
+             {{"Monthly payment plans from" | translate}} {{"EGP" | translate}} 43
+             <a href="">{{"View more details" | translate}} </a>
           </p>
           <img
              src="./assets/images/en_pdp-01.png"
@@ -75,12 +74,12 @@
              class="img-fluid"
           />
           <div class="details bg-light p-3 my-3">
-             <h6>Order in 23 hrs 10 mins</h6>
+             <h6>{{"Order in 23 hrs 10 mins" | translate}}</h6>
              <div class="d-flex justify-content-between">
                 <p class="fw-semibold">
-                   Free delivery <span class="fw-normal">by</span
+                   {{"Free delivery" | translate}} <span class="fw-normal">{{"by" | translate}}</span
                    ><span class="text-decoration-underline">
-                      Mon, Jul 18</span
+                      {{"Mon, Jul 18" | translate}}</span
                    >
                 </p>
                 <div class="imag-details">
@@ -103,15 +102,15 @@
                    alt="icon"
                 />
                 <p>
-                   Want it Tomorrow? Select Get It Tomorrow on checkout
-                   within the next 8 hrs and 10 mins.
+
+                   {{"Want it Tomorrow? Select Get It Tomorrow on checkout within the next 8 hrs and 10 mins." | translate}}
                 </p>
              </div>
           </div>
 
        <!-- Cart Part -->
           <div>
-             <h4 class="my-3">Quantity</h4>
+             <h4 class="my-3">{{"Quantity" | translate}}</h4>
              <div class="hstack gap-3">
 
                 <span class="display-6 btn">{{newpro.stock}}</span>
@@ -123,7 +122,7 @@
                 </button> -->
                 <div class="col-8 px-0">
                   <button id="addToCart" class="btn badge ms-3 w-100 h-100" (click)="AddToCart()">
-                    Add to Cart
+                    {{"Add To Cart" | translate}}
                   </button>
                 </div>
                 <!-- Add to Favourite -->
@@ -146,8 +145,7 @@
                    alt=""
                 />
                 <span
-                   >This item cannot be exchanged or returned Learn
-                   more</span
+                   >{{"This item cannot be exchanged or returned" | translate}}</span
                 >
              </li>
              <li class="list-group-item">
@@ -158,50 +156,50 @@
                       alt=""
                    />
                    <div class="details-item">
-                      <p class="m-0">Sold by <a href="">noon</a></p>
+                      <p class="m-0">{{"Sold by" | translate}} <a href="">{{"noon" | translate}}</a></p>
                       <p class="m-0">
                          <span
                             class="badge bg-green "
                             >{{newpro.rating}} <i class="fa-solid fa-star fa-sm"></i
                          ></span>
-                         79%positive
+                         79%{{"positive" | translate}}
                       </p>
                    </div>
                 </div>
-                <p class="text-muted my-3">100% authenticity guaranteed by noon</p>
+                <p class="text-muted my-3">{{"100% authenticity guaranteed by noon" | translate}} </p>
 
              </li>
              <li class="list-group-item d-flex align-items-center gap-2 badge-img text-center">
                 <div class="item">
                    <img src="./assets/images/badge_great_recent_rating.png" class="img-fluid" alt="">
-                   <p class="small">Low Return Seller</p>
+                   <p class="small">{{"Low Return Seller" | translate}} </p>
                 </div>
                 <div class="item">
                    <img src="./assets/images/badge_low_returns_seller.png" class="img-fluid" alt="">
-                   <p class="small">Great Recent Rating</p>
+                   <p class="small">{{"Great Recent Rating" | translate}} </p>
                 </div>
                 <hr class="vr">
                 <div class="item">
                    <h6 class="text-success fw-bold">84%</h6>
-                   <p class="small">Product as Described </p>
+                   <p class="small">{{"Product as Described" | translate}}  </p>
                 </div>
              </li>
              <li class="list-group-item">
                 <div class="item d-flex align-items-start">
                    <img src="./assets/images/trusted_shipping_usp_v2.svg" class="img-fluid" alt="">
                    <div class="det">
-                      <h6 class="text-muted">TRUSTED SHIPPING
+                      <h6 class="text-muted">{{"TRUSTED SHIPPING" | translate}}
                       </h6>
-                      <p class="text-muted small">Free shipping when you spend EGP 200 and above on express items</p>
+                      <p class="text-muted small">{{"Free shipping when you spend EGP 200 and above on express items" | translate}} </p>
                    </div>
                 </div>
                 <div class="item d-flex align-items-start">
                    <img src="./assets/images/secure_usp.svg" class="img-fluid" alt="">
                    <div class="det">
                       <h6 class="text-muted">
-                         SECURE SHOPPING
+                         {{"SECURE SHOPPING" | translate}}
                       </h6>
-                      <p class="text-muted small">Your data is always protected
+                      <p class="text-muted small">{{"Your data is always protected" | translate}}
                       </p>
                    </div>
                 </div>
