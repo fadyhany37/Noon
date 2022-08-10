@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { Iproduct } from '../Compnents/pages/profile/Models/iproduct';
+import { Iproduct } from '../Models/iproduct';
 import { FirebaseService } from './firebase.service';
 
 @Injectable({
@@ -36,6 +36,19 @@ export class ProductsService {
     return this.products.filter((p) => p.sellerCode == code);
 
   }
+  getProductsByName(search:string):Iproduct[]
+  {
+
+    return this.products.filter((p) => {
+      if (p.description)
+      {
+       return p.description.toLowerCase().includes(search)
+      }
+
+    });
+
+  }
+
 
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NoonProducts } from 'src/app/Compnents/pages/profile/Models/noon-products';
+import { NoonProducts } from 'src/app/Models/noon-products';
 import { ProductsService } from 'src/app/services/products.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
@@ -15,15 +15,21 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class AllproductsComponent implements OnInit {
 
-  ArrayOfProducts: any[]=[];
-  constructor(private AllProducts: ProductsService, private router: Router, private fireStore: FirebaseService) {
+  ArrayOfProducts: any[] = [];
+  products: any[] = [];
+  productName: any;
+  termSec: string = ""
+  constructor(private AllProducts: ProductsService, private router: Router, private fireStore: FirebaseService, private ActiveRouter: ActivatedRoute) {
 
   }
-// term:BehaviorSubject<any> = new BehaviorSubject('')
-   termSec:string =""
+  // term:BehaviorSubject<any> = new BehaviorSubject('')
+
   ShowProductDetails(productid: any): void {
     this.router.navigate(['productsdetails', productid]);
   }
+
+
+
 
 
   //     {
@@ -104,35 +110,58 @@ export class AllproductsComponent implements OnInit {
   // ];
 
 
-  getValue(e:any) {
-    this.termSec = e.target.getAttribute('data-name'); ;
+  getValue(e: any) {
+
+    this.ArrayOfProducts = this.AllProducts.getProductsByCategorey("all")
+    this.termSec = e.target.getAttribute('data-name');
+
     // console.log(this.term.getValue());
 
   }
 
   ngOnInit(): void {
-console.log(this.ArrayOfProducts);
 
-//     this.term.subscribe({
-//       next:()=> {
-// this.termSec = this.term.getValue()
-//       }
-//     })
+    console.log(this.ArrayOfProducts);
+
+    // this.fireStore.getproducts().subscribe((ArrayOfProducts) => {
+    //   let prods: any = [];
+    //   for (let pro of ArrayOfProducts) {
+    //     prods.push({
+    //       id: pro.payload.doc.id,
+    //       ...(pro.payload.doc.data() as object),
+
+    //     });
+    //   }
+    //   console.log("hii from firestore");
+
+    //   this.products = prods;
+    // });
 
 
+    this.ActiveRouter.paramMap.subscribe(paramMap => {
 
+      this.productName = paramMap.get('productName');
+      if (this.productName) {
+        this.termSec = "";
+       console.log("hii from params");
+        this.ArrayOfProducts = this.AllProducts.getProductsByName(this.productName);
+        console.log(this.ArrayOfProducts);
+      }
+      else {
 
-      this.fireStore.getproducts().subscribe((ArrayOfProducts) => {
-      let prods: any = [];
-      for (let pro of ArrayOfProducts) {
-        prods.push({
-          id: pro.payload.doc.id,
-          ...(pro.payload.doc.data() as object),
+        this.ArrayOfProducts = this.AllProducts.getProductsByCategorey("all")
+        console.log(this.ArrayOfProducts);
 
-        });
       }
 
-      this.ArrayOfProducts = prods;
-    });
-    }
+    })
+
+    //     this.term.subscribe({
+    //       next:()=> {
+    // this.termSec = this.term.getValue()
+    //       }
+    //     })
+
+
+  }
 }

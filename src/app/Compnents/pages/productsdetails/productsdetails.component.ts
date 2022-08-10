@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { NoonProducts } from 'src/app/Compnents/pages/profile/Models/noon-products';
+import { NoonProducts } from 'src/app/Models/noon-products';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ProductsService } from 'src/app/services/products.service';
 

@@ -6,11 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(list: any[], term: string): any {
-    console.log(list);
     console.log(term);
-    if (term) {
+    if (term!="") {
       return list.filter((item) => {
         if (item.category) {
+
          return item.category.toLowerCase().includes(term.toLowerCase())
         }
       })

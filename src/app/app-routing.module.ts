@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'Profile', component: ProfileComponent },
   { path: 'Profile/:pId', component: ProfileComponent },
-  {path:'allproducts',component:AllproductsComponent},
+  { path: 'allproducts', component: AllproductsComponent },
+  {path:'products/:productName',component:AllproductsComponent},
   {path:'productsdetails/:productid',component:ProductsdetailsComponent},
   { path: '**', component: NotFoundComponent },
 

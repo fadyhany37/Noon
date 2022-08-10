@@ -1,6 +1,6 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Iproduct } from 'src/app/Compnents/pages/profile/Models/iproduct';
+import { Iproduct } from 'src/app/Models/iproduct';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ProductsService } from 'src/app/services/products.service';
 

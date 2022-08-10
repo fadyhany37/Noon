@@ -23,7 +23,7 @@ export class ProductsSwiperComponent implements OnInit ,OnChanges {
 
   }
   ngOnChanges(): void {
- console.log("changed")
+
 
 
   }
