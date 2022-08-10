@@ -1,26 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { NoonProducts } from 'src/app/Compnents/pages/profile/Models/noon-products';
+import { NoonProducts } from 'src/app/Models/noon-products';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-allproducts',
   templateUrl: './allproducts.component.html',
   styleUrls: ['./allproducts.component.scss'],
-
-
-
 })
 export class AllproductsComponent implements OnInit {
-
-  ArrayOfProducts: any[]=[];
-  constructor(private AllProducts: ProductsService, private router: Router, private fireStore: FirebaseService) {
-
-  }
+  constructor(private AllProducts: ProductsService, private router: Router,private fireStore: FirebaseService,public translate: TranslateService) {}
 // term:BehaviorSubject<any> = new BehaviorSubject('')
-   termSec:string =""
+  termSec: string = ""
+  ArrayOfProducts:any[]=[]
   ShowProductDetails(productid: any): void {
     this.router.navigate(['productsdetails', productid]);
   }
