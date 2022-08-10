@@ -9,65 +9,50 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit  {
+export class ProfileComponent implements OnInit {
   adding: boolean;
   IdRecived: any;
   update: boolean = false;
   product: any = {};
 
-  sellerProducts: any[]=[]
+  sellerProducts: any[] = [];
   sellerCode: number = 4;
 
-  user: any = {
-    name: 'Alaa Ezzat',
-    email: 'alaa@gmail.com',
-    image: '../../../../assets/avatar.jpg',
-    sellerCode: 4,
-  };
-  constructor(private _ProductsService: ProductsService, private fireStore: FirebaseService, private activatedRoute: ActivatedRoute,private router: Router) {
-
+  constructor(
+    private _ProductsService: ProductsService,
+    private fireStore: FirebaseService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
     this.adding = true;
-
-
   }
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(paramMap=>{
-      this.IdRecived=paramMap.get('pId');
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      this.IdRecived = paramMap.get('pId');
       if (this.IdRecived)
         this.fireStore.getProductById(this.IdRecived).subscribe((p) => {
-          this.product = {id: p.payload.id,...p.payload.data() as object };
+          this.product = { id: p.payload.id, ...(p.payload.data() as object) };
           this.update = true;
-          console.log(this.product)
-
-
-        })
-
-
-        } )
-
-
+          console.log(this.product);
+        });
+    });
   }
   ngAfterContentChecked(): void {
-
-    this.sellerProducts = this._ProductsService.getProductsBySellerCode(this.sellerCode)
-
-
+    this.sellerProducts = this._ProductsService.getProductsBySellerCode(
+      this.sellerCode
+    );
   }
-
-
 
   addingFunction() {
     this.adding = true;
-    this.router.navigate(['/Profile'])
+    this.router.navigate(['/Profile']);
   }
   showFunction() {
     this.adding = false;
-
-
-
   }
-  openRegisterForm() {
+  openUpdateForm() {
+    this.router.navigate(['/updateUser']);
+
     /* open register form to edit user info */
   }
-
 }

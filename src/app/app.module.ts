@@ -30,6 +30,8 @@ import { OrderSummryComponent } from './Compnents/pages/cart2/order-summry/order
 import { Cart2Component } from './Compnents/pages/cart2/cart2.component';
 
 
+import { UserProfileComponent } from './Compnents/pages/user-profile/user-profile.component';
+import { UpdateUserComponent } from './Compnents/pages/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +53,8 @@ import { Cart2Component } from './Compnents/pages/cart2/cart2.component';
     WishListComponent,
     OrderSummryComponent,
     Cart2Component,
-
-
+    UserProfileComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,

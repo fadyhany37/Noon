@@ -1,3 +1,4 @@
+import { UpdateUserComponent } from './Compnents/pages/update-user/update-user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './Compnents/pages/profile/profile.component';
@@ -7,19 +8,22 @@ import { AllproductsComponent } from './Compnents/pages/allproducts/allproducts.
 import { ProductsdetailsComponent } from './Compnents/pages/productsdetails/productsdetails.component';
 
 import { Cart2Component } from './Compnents/pages/cart2/cart2.component';
+import { UserProfileComponent } from './Compnents/pages/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
   { path: 'Profile', component: ProfileComponent },
+  { path: 'userProfile', component: UserProfileComponent },
+  { path: 'updateUser', component: UpdateUserComponent },
+
   { path: 'Profile/:pId', component: ProfileComponent },
   { path: 'allproducts', component: AllproductsComponent },
   { path: 'products/:productName', component: AllproductsComponent },
   {path:'productsdetails/:productid',component:ProductsdetailsComponent},
   {path: 'cart2',component: Cart2Component},
   { path: '**', component: NotFoundComponent },
-
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

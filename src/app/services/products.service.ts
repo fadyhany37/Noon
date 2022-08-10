@@ -1,40 +1,49 @@
 import { Injectable } from '@angular/core';
+<<<<<<< HEAD
 import { AngularFirestore} from '@angular/fire/compat/firestore';
+=======
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+>>>>>>> Alaa2
 import { Iproduct } from '../Models/iproduct';
 import { FirebaseService } from './firebase.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
+<<<<<<< HEAD
   products:any[]=[]
   constructor(private fireStore: FirebaseService,private store: AngularFirestore) {
 
+=======
+  products: any[] = [];
+  constructor(private fireStore: FirebaseService) {
+>>>>>>> Alaa2
     this.fireStore.getproducts().subscribe((products) => {
       let prods: any = [];
       for (let prod of products) {
-        prods.push({ id:prod.payload.doc.id,...prod.payload.doc.data()as object })
+        prods.push({
+          id: prod.payload.doc.id,
+          ...(prod.payload.doc.data() as object),
+        });
       }
 
       this.products = prods;
-
     });
-   }
+  }
 
   getProductsByCategorey(cat: string) {
-    if (cat == "all") {
-      return this.products
-    }
-    else {
-      return this.products.filter((p) => p.category == cat);;
+    if (cat == 'all') {
+      return this.products;
+    } else {
+      return this.products.filter((p) => p.category == cat);
     }
   }
-  getProductsBySellerCode(code:number):Iproduct[]
-  {
-
+  getProductsBySellerCode(code: number): Iproduct[] {
     return this.products.filter((p) => p.sellerCode == code);
-
   }
+<<<<<<< HEAD
   getProductsByName(search:string):Iproduct[]
   {
 
@@ -59,8 +68,6 @@ export class ProductsService {
   // {
   //   this.store.collection("Products").add(product);
   // }
+=======
+>>>>>>> Alaa2
 }
-
-
-
-
