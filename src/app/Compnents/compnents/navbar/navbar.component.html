@@ -138,17 +138,18 @@
             </a>
           </li>
           <li class="searchArea nav-item">
-            <form class="d-flex search-field" role="search">
+            <div class="d-flex search-field" role="search">
               <input
                 class="form-control me-2"
                 type="search"
+                (change)="onchange($event)"
                 placeholder="what are you looking for ?"
                 aria-label="Search"
               />
               <button class="mybtn" type="submit">
                 <i class="fa fa-search"></i>
               </button>
-            </form>
+            </div>
           </li>
         </ul>
         <div

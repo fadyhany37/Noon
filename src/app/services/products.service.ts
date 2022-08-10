@@ -36,6 +36,19 @@ export class ProductsService {
     return this.products.filter((p) => p.sellerCode == code);
 
   }
+  getProductsByName(search:string):Iproduct[]
+  {
+
+    return this.products.filter((p) => {
+      if (p.description)
+      {
+       return p.description.toLowerCase().includes(search)
+      }
+
+    });
+
+  }
+
 
 
 
