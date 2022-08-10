@@ -51,12 +51,7 @@ export class HomeComponent implements OnInit {
     this.allProducts = this._ProductsService.getProductsByCategorey("all");
     this.bestSeller=this.allProducts.filter((p: any) => p.rating > 4.5);
 
-
   }
-
-
-
-
    }
 
 

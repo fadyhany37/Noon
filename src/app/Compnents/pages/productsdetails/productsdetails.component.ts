@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { NoonProducts } from 'src/app/Models/noon-products';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { NoonProducts } from 'src/app/Models/noon-products';
+import { ICartProduct } from 'src/app/Models/icart-product';
+import { Iproduct } from 'src/app/Models/iproduct';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { WishListService } from 'src/app/services/wish-list.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productsdetails',
@@ -11,9 +16,26 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsdetailsComponent implements OnInit {
 
+ //===============hazem changes
+  //selected Prodeuct
+  selectedProduct!: Iproduct;
+  ProductQuantity: number = 1;
+  p!: Iproduct;
+  LocalStorageProducts: ICartProduct[] = [];
 
+  CartProduct: ICartProduct = {
+    quantity: 0,
+    product: this.p,
+  };
 
-  constructor(private AllProducts: ProductsService, private router:Router, private ActiveRouter:ActivatedRoute,private fireStore: FirebaseService) {}
+  //============
+
+  constructor(private AllProducts: ProductsService,
+    private router:Router, private ActiveRouter:ActivatedRoute,
+    private _router: Router,
+    private wishService: WishListService,
+    private _cartService: CartService,
+    private fireStore: FirebaseService) { }
 
 //   quantity:number=1;
 // i=1
@@ -36,9 +58,70 @@ newpro: any = {};
 
 
 
-  DecreaseFromStock(newpro:any) {
-      newpro.stock --;
+
+
+
+
+//==================Hazem changes
+
+  // DecreaseFromStock(newpro:any) {
+  //     newpro.stock --;
+  //   }
+   //Add Product To LocalStorage/Database
+   AddToCart() {
+     if (localStorage.getItem("currentUser")) {
+      this._cartService.addToCart(this.selectedProduct.id, this.ProductQuantity).subscribe(
+        (next) => {},
+        (err) => {
+          console.log(err);
+        },
+        () => {
+          Swal.fire("Product added to your cart", "Click the button to see you cart", "success").then(() => {
+            this._router.navigateByUrl("/src/app/Compnents/pages/cart2/cart2.component.html");
+            this.ngOnInit();
+          });
+        }
+      );
+    } else {
+      this.CartProduct.product = this.selectedProduct;
+      this.CartProduct.quantity = this.ProductQuantity;
+
+      if (localStorage.getItem("LocalStorageProducts")) {
+        this.LocalStorageProducts = JSON.parse(localStorage.getItem("LocalStorageProducts")!);
+
+        if (this.LocalStorageProducts.find((p) => p.product.id == this.CartProduct.product.id)) return;
+
+        this.LocalStorageProducts.push(this.CartProduct);
+        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+      } else {
+        this.LocalStorageProducts.push(this.CartProduct);
+
+        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+      }
     }
+  }
+
+  AddToWishList() {
+    console.log("add to wishlist");
+    if (localStorage.getItem("currentUser")) {
+      this.wishService.addToWishList(this.selectedProduct.id).subscribe(
+        (next) => {},
+        (err) => {
+          console.log(err);
+        },
+        () => {
+          Swal.fire("Product added to your Wish List", "Click the button to see you cart", "success").then(() => {
+            this._router.navigateByUrl("/egypt-en/cart");
+            this.ngOnInit();
+          });
+        }
+      );
+    }
+  }
+  //#endregion
+
 
 
   //  ArrayOfProducts: any[] = [

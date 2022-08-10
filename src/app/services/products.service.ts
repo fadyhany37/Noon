@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
 import { Iproduct } from '../Models/iproduct';
 import { FirebaseService } from './firebase.service';
 
@@ -9,7 +8,7 @@ import { FirebaseService } from './firebase.service';
 })
 export class ProductsService {
   products:any[]=[]
-  constructor(private fireStore: FirebaseService) {
+  constructor(private fireStore: FirebaseService,private store: AngularFirestore) {
 
     this.fireStore.getproducts().subscribe((products) => {
       let prods: any = [];
@@ -52,8 +51,9 @@ export class ProductsService {
 
 
 
-
-
+  getProductById(productId: string) {
+    return this.store.collection("Products").doc(productId).snapshotChanges();
+  }
 
   // addproduct(product:any)
   // {

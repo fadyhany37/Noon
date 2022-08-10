@@ -25,6 +25,12 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from "@angular/common/http";
+import { WishListComponent } from './Compnents/pages/cart2/wish-list/wish-list.component';
+import { OrderSummryComponent } from './Compnents/pages/cart2/order-summry/order-summry.component';
+import { Cart2Component } from './Compnents/pages/cart2/cart2.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +47,12 @@ import { HttpClientModule } from "@angular/common/http";
     NotFoundComponent,
     AllproductsComponent,
     ProductsdetailsComponent,
-    FilterPipe
+    FilterPipe,
+    WishListComponent,
+    OrderSummryComponent,
+    Cart2Component,
+
+
   ],
   imports: [
     BrowserModule,

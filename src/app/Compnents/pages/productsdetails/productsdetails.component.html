@@ -39,7 +39,7 @@
          <div *ngIf="newpro.rating>4.8" class="best-seller">
             Best Seller
           </div>
-             
+
           <h6 class="text-muted my-2">{{newpro.brand}}</h6>
           <h4 class="text-dark">{{newpro.description}}</h4>
           <div class="d-flex gap-3">
@@ -108,17 +108,34 @@
                 </p>
              </div>
           </div>
+
+       <!-- Cart Part -->
           <div>
              <h4 class="my-3">Quantity</h4>
              <div class="hstack gap-3">
 
                 <span class="display-6 btn">{{newpro.stock}}</span>
 
-                <button class="btn btn-primary py-2 flex-grow-1" (click)="DecreaseFromStock(newpro.stock)" >
+
+                <!--=================== Hazem changes -->
+                <!-- <button class="btn btn-primary py-2 flex-grow-1" (click)="DecreaseFromStock(newpro.stock)" >
                    Add To Cart
-                </button>
+                </button> -->
+                <div class="col-8 px-0">
+                  <button id="addToCart" class="btn badge ms-3 w-100 h-100" (click)="AddToCart()">
+                    Add to Cart
+                  </button>
+                </div>
+                <!-- Add to Favourite -->
+                <div class="col-2">
+                  <button class="love fs-2 ps-2 btn btn-defualt ms-2" (click)="AddToWishList()">
+                    <i class="like fa-solid fa-heart fs-1" value="0"></i>
+                  </button>
+                </div>
              </div>
           </div>
+         <!-- end -->
+
        </div>
        <div class="col-md-6 col-lg-3">
           <ul class="list-group list-group-flush border-start">
