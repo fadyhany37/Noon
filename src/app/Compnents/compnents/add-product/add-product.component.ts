@@ -1,4 +1,4 @@
-import { Iproduct } from '../../pages/profile/Models/iproduct';
+import { Iproduct } from '../../../Models/iproduct';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import {
   FormArray,
