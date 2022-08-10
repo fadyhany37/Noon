@@ -157,8 +157,9 @@
           style="flex-direction: row"
         >
           <div class="nav-item d-flex language">
-            <a class="nav-link lang" href="#">العربيه</a>
+            <span (click)="changeCurrentLang($event)" class="btn  btn-dark">ar</span>
           </div>
+
           <div class="nav-item sign d-flex">
             <a class="nav-link" href="#">{{"Sign Up" | translate}}</a>
             <i class="fa fa-user"></i>

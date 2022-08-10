@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,11 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private router: Router ) { }
+  currentLang:string=""
+  constructor(public translate: TranslateService,private router: Router){
+    this.currentLang = localStorage.getItem('currentLang') || 'en'
+    this.translate.use(this.currentLang)
+  }
 
   ngOnInit(): void {
   }
@@ -17,7 +22,14 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/products', e.target.value ]);
     console.log(e.target.value);
 
-
   }
+  changeCurrentLang(e: any) {
+  console.log(e.target.innerText);
+    let lang = e.target.innerText;
+    e.target.innerText = (lang == "ar") ? 'en' : 'ar';
+    this.translate.use((lang=="ar")?'ar':'en');
+    localStorage.setItem("currentLang",(lang=="ar")?'ar':'en');
+
+}
 
 }
