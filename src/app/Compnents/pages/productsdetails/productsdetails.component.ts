@@ -59,8 +59,7 @@ newpro: any = {};
 
 
 
-
-
+  
 
 
   //  ArrayOfProducts: any[] = [
