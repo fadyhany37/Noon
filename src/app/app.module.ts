@@ -24,15 +24,12 @@ import { FilterPipe } from './filter.pipe';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from "@angular/common/http";
-import { WishListComponent } from './Compnents/pages/cart2/wish-list/wish-list.component';
-import { OrderSummryComponent } from './Compnents/pages/cart2/order-summry/order-summry.component';
-import { Cart2Component } from './Compnents/pages/cart2/cart2.component';
-
-
 import { UserProfileComponent } from './Compnents/pages/user-profile/user-profile.component';
 import { UpdateUserComponent } from './Compnents/pages/update-user/update-user.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './Compnents/pages/cart/cart.component';
+import { OrderSummryComponent } from './Compnents/pages/cart/order-summry/order-summry.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,11 +47,11 @@ import { UpdateUserComponent } from './Compnents/pages/update-user/update-user.c
     AllproductsComponent,
     ProductsdetailsComponent,
     FilterPipe,
-    WishListComponent,
     OrderSummryComponent,
-    Cart2Component,
     UserProfileComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    CartComponent
+
   ],
   imports: [
     BrowserModule,

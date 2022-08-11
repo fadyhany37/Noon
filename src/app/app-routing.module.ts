@@ -6,6 +6,7 @@ import { HomeComponent } from './Compnents/pages/home/home.component';
 import { NotFoundComponent } from './Compnents/pages/not-found/not-found.component';
 import { AllproductsComponent } from './Compnents/pages/allproducts/allproducts.component';
 import { ProductsdetailsComponent } from './Compnents/pages/productsdetails/productsdetails.component';
+import { CartComponent } from './Compnents/pages/cart/cart.component';
 
 import { Cart2Component } from './Compnents/pages/cart2/cart2.component';
 import { UserProfileComponent } from './Compnents/pages/user-profile/user-profile.component';
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'allproducts', component: AllproductsComponent },
   { path: 'products/:productName', component: AllproductsComponent },
   {path:'productsdetails/:productid',component:ProductsdetailsComponent},
-  {path: 'cart2',component: Cart2Component},
+  {path: 'cart',component:CartComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

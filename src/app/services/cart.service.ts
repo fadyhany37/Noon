@@ -1,40 +1,41 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
-import { ICartProduct } from "../Models/icart-product";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, observable } from 'rxjs';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root'
 })
 export class CartService {
-  constructor(private _api: HttpClient) {}
-  //add to cart
-  test() {
-    return this._api.get(`${environment.firebaseConfig}` + "/api/Cart/test");
+public cartItemList:any=[];
+public productList = new BehaviorSubject<any>([]);
+  constructor() { }
+  getProduct(){
+    return this.productList.asObservable();
   }
-  //get all cart items
-  getCartItems(): Observable<ICartProduct[]> {
-    return this._api.get<ICartProduct[]>(`${environment.firebaseConfig}` + `/api/Cart/GetAll`);
+  setProduct(product:any){
+     this.cartItemList.push(...product);
+     this.productList.next(product);
   }
-
-  // Add to cart
-  addToCart(proId: number, count: number) {
-    return this._api.post(`${environment.firebaseConfig}` + `/api/Cart/Add?proId=${proId}&count=${count}`,count);
-  }
-  //update product count in cart
-  updateQuantity(proId: number, count: number) {
-    return this._api.post(`${environment.firebaseConfig}` + `/api/Cart/Update?proId=${proId}`, count);
-  }
-  //Remove from cart
-  removeFromCart(proId: number) {
-    return this._api.delete(`${environment.firebaseConfig}` + `/api/Cart/Remove?proId=${proId}`);
+  addToCart(product:any){
+      this.cartItemList.push(product);
+      this.productList.next(this.cartItemList)
+      this.getTotalPrice();
+      console.log(product);
   }
 
-
-  GetTotalPrice():Observable<number>{
-
-    return this._api.get<number>(`${environment.firebaseConfig}/api/Cart/GetCartPrice`)
+  getTotalPrice(){
+    let grandTotal=0;
+    this.cartItemList.map((a:any)=>{
+      grandTotal +=a.total;
+    })
+    return grandTotal;
   }
 
+  removeCartItem(product:any){
+    this.cartItemList.map((a:any,index:any)=>{
+      if(product.id===a.id){
+        this.cartItemList.splice(index,1)
+      }
+    })
+    this.productList.next(this.cartItemList)
+  }
 }
