@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
 
   }
   changeCurrentLang(e: any) {
-  console.log(e.target.innerText);
+  
     let lang = e.target.innerText;
     e.target.innerText = (lang == "ar") ? 'en' : 'ar';
     this.translate.use((lang=="ar")?'ar':'en');

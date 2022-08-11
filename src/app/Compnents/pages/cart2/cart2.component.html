@@ -14,20 +14,20 @@
                     <div class="col-lg-2">
                       <img [src]="product.product.images" class="img-fluid" />
                     </div>
-  
+
                     <div class="col-7">
                       <p>{{lang=="en"?product.product.name:product.product.nameArabic}}</p>
                       <p>{{lang=="en"?product.product.description:product.product.descriptionAr}}</p>
                       <p>{{'orderSummery.quantity'}}: {{product.quantity}}</p>
                       <p>{{'orderSummery.price'}}: {{product.product.price-(product.product.price*product.product.discountPercentage)}}</p>
-  
+
                     </div>
                     <div class="col-lg-3 text-center">
-  
-  
+
+
                       <button class="btn btn-danger mt-4 " (click)="Remove(product.product.id)" >{{'Cart.Remove'}}</button>
-  
-  
+
+
                     </div>
                   </div>
                 </div>
@@ -41,7 +41,7 @@
             </button>
           </a>
           <!-- Wishlist -->
-       
+
         </div>
         <div class="col-lg-4 col-md-4 mt-4">
           <div class="rightside p-4">
@@ -64,7 +64,7 @@
               </div>
             </div>
             <hr />
-  
+
             <div class="row">
               <div class="col-8">
                 <p class="mt-4">{{'orderSummery.Total'}}</p>
@@ -85,4 +85,3 @@
       </div>
     </div>
   </div>
-  
