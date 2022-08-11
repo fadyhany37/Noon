@@ -56,10 +56,12 @@ newpro: any = {};
    myproduct: any;
    IdRecived: any;
 
+   DecreaseFromStock(newpro:any) {
+    newpro.stock --;
+  }
 
 
 
-  
 
 
   //  ArrayOfProducts: any[] = [
@@ -258,7 +260,7 @@ newpro: any = {};
 
 
   }
-  addToCart(item:any){
+  addTocart(item:any){
     this.cartService.addToCart(item);
   }
 }

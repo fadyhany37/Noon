@@ -8,7 +8,6 @@ import { AllproductsComponent } from './Compnents/pages/allproducts/allproducts.
 import { ProductsdetailsComponent } from './Compnents/pages/productsdetails/productsdetails.component';
 import { CartComponent } from './Compnents/pages/cart/cart.component';
 
-import { Cart2Component } from './Compnents/pages/cart2/cart2.component';
 import { UserProfileComponent } from './Compnents/pages/user-profile/user-profile.component';
 
 const routes: Routes = [
@@ -17,7 +16,6 @@ const routes: Routes = [
   { path: 'Profile', component: ProfileComponent },
   { path: 'userProfile', component: UserProfileComponent },
   { path: 'updateUser', component: UpdateUserComponent },
-
   { path: 'Profile/:pId', component: ProfileComponent },
   { path: 'allproducts', component: AllproductsComponent },
   { path: 'products/:productName', component: AllproductsComponent },
