@@ -1,3 +1,5 @@
+import { LoginPageComponent } from './Compnents/pages/login-page/login-page.component';
+import { RegisterPageComponent } from './Compnents/pages/register-page/register-page.component';
 import { UpdateUserComponent } from './Compnents/pages/update-user/update-user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -18,9 +20,11 @@ const routes: Routes = [
   { path: 'updateUser', component: UpdateUserComponent },
   { path: 'Profile/:pId', component: ProfileComponent },
   { path: 'allproducts', component: AllproductsComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
   { path: 'products/:productName', component: AllproductsComponent },
-  {path:'productsdetails/:productid',component:ProductsdetailsComponent},
-  {path: 'cart',component:CartComponent},
+  { path: 'productsdetails/:productid', component: ProductsdetailsComponent },
+  { path: 'cart', component: CartComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

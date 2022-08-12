@@ -12,7 +12,6 @@ import {
 } from '@angular/forms';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
-/*  */
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
@@ -21,7 +20,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class UpdateUserComponent implements OnInit, OnChanges {
   user: any = {};
   updatedUser: IUser = {} as IUser;
-  uId: any;
+  uEmail: any;
   Foundeduser: any = [];
   usrFormGroup: FormGroup;
   emailPattern: string = '[a-zA-Z0-9+_.-]+@gmail.com';
@@ -36,7 +35,7 @@ export class UpdateUserComponent implements OnInit, OnChanges {
     private router: Router,
     private fb: FormBuilder
   ) {
-    this.uId = localStorage.getItem('userId');
+    this.uEmail = localStorage.getItem('email');
     this.fireStore.getUsers().subscribe((users) => {
       let myusers: any = [];
       for (let user of users) {
@@ -45,7 +44,7 @@ export class UpdateUserComponent implements OnInit, OnChanges {
           ...(user.payload.doc.data() as object),
         });
       }
-      this.user = myusers.find((u: any) => u.id == this.uId);
+      this.user = myusers.find((u: any) => u.email == this.uEmail);
       console.log(this.user);
       this.usrFormGroup.patchValue(this.user);
     });
@@ -103,7 +102,7 @@ export class UpdateUserComponent implements OnInit, OnChanges {
     this.updatedUser = this.usrFormGroup.value;
     console.log(this.updatedUser);
 
-    this.fireStore.updateUser(this.uId, this.updatedUser);
+    this.fireStore.updateUser(this.uEmail, this.updatedUser);
 
     alert(`${this.user.fullName} is updated`);
 
