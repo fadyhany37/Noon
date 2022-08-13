@@ -10,34 +10,35 @@ import { AuthservicesService } from 'src/app/services/authservices.service';
 })
 export class NavbarComponent implements OnInit {
 
-  isOpen:boolean=false
-  isUser:boolean=false
+  isOpen: boolean = false
+  isUser: boolean = false
 
-  constructor(private as:AuthservicesService) { }
+  constructor(private as: AuthservicesService) { }
 
   ngOnInit(): void {
-  //   this.as.user.subscribe( user =>{
+    // this.as.user.subscribe( (user: any) =>{
 
-  //     if(user)
-  //     {
-  //       this.isUser=true
-  //     }
-  //     else
-  //     {
-  //       this.isUser=false
-  //     }
-  //   })
+    //   if(user)
+    //   {
+    //     this.isUser=true
+    //   }
+
+    // })
+
+    // if (this.as.user()) this.isUser = true;
+    // else this.isUser = false;
+  }
+
+  // toggleNavbar() {
+  //   this.isOpen = !this.isOpen
   // }
 
-  // toggleNavbar()
-  // {
-  //      this.isOpen=! this.isOpen
+  // logout() {
+  //    this.as.logout()
+  //   this.isOpen = false;
   // }
-
-  // logout()
-  // {
-  // this.as.logout()
-  // }
-
 }
-}
+
+
+
+

@@ -160,14 +160,22 @@
           </div>
 
 
+          
           <div class="nav-item sign d-flex"  *ngIf="!isUser">
             <a class="nav-link" href="#" routerLink="/login">Sign In</a>
             <i class="fa fa-user"></i>
           </div>
-          <div class="nav-item sign d-flex"  *ngIf="isUser">
-            <a class="nav-link" href="#" routerLink="/logout">Sign Out</a>
+
+          
+
+          <!-- <div class="nav-item sign d-flex"  *ngIf="!isUser">
+            <a class="nav-link" href="#" (click)="toggleNavbar()" routerLink="/login">Sign In</a>
             <i class="fa fa-user"></i>
-          </div>
+          </div> -->
+          <!-- <div class="nav-item sign d-flex"  *ngIf="isUser" >
+            <a class="nav-link" href="#" (click)="logout()"  routerLink="/logout">Sign Out</a>
+            <i class="fa fa-user"></i>
+          </div> -->
 
 
           <div class="nav-item cart d-flex">
@@ -182,3 +190,35 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+  <!-- <button nz-button routerLink="/login" (click)="toggleMenu()" *ngIf="!isLoggedIn">
+    Sign in
+  </button>
+
+  <button nz-button routerLink="/register"(click)="toggleMenu()" *ngIf="!isLoggedIn">
+    Sign up
+  </button>
+
+  <button nz-button (click)="logout() && toggleMenu()" *ngIf="isLoggedIn">
+    Sign out
+  </button> -->
+
+
+
+<!-- isLoggedIn = false;
+isMenuOpen = false; -->
+
+<!-- toggleMenu() {
+  this.isMenuOpen = !this.isMenuOpen;
+} -->
+
+<!-- logout() {
+  this._auth.logout();
+  this.isMenuOpen = false;
+} -->

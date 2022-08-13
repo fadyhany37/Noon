@@ -13,7 +13,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" [formGroup]="userForm">
+				<form class="login100-form validate-form" [formGroup]="userForm" (ngSubmit)="login()">
 					<span id="s1">
 						Welcome Back!
 					</span>
@@ -38,30 +38,27 @@
 							email is required
 						</small>
 						<small *ngIf="userForm.get('email')?.errors?.['pattern']">
-							  in the first put a maximum of nine lowercase letters ,
-							  in the second put"@" with any letter 
-							  and finally put"." with maximum of three lowercase letters please....
+							in the first put a maximum of nine lowercase letters ,
+							in the second put"@gmail.com"....
 						</small>
 					</div>
 
 
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" [type]=" showPassword ? 'text' : 'password' " name="password"
-							formControlName="password" [class.is-valid]="userForm.get('password')?.valid"
+						<input class="input100" [type]="showPassword" name="password" formControlName="password"
+							[class.is-valid]="userForm.get('password')?.valid"
 							[class.is-invalid]="userForm.get('password')?.invalid">
 						<span class="focus-input100">
 							Password
 						</span>
-						<i class="bi bi-eye-fill" style="justify-content: end; display: flex ;font-size:30px; color:rgb(254, 238, 0)"
-							(click)='showHidePassword()'>
-							<!-- {{ showPassword ? 'Hide' : 'Show' }} Password -->
+						<i [class]="eye" class="bi bi-eye-fill"
+							style="justify-content: end; display: flex ;font-size:30px; color:rgb(134, 133, 119)"
+							(click)='toggle()'>
+
 						</i>
 					</div>
-					<!-- <span>
-					     <i class="bi bi-eye-slash-fill" style="justify-content: end; display: flex">
-						</i> 
-					</span> -->
+
 
 					<div [hidden]="userForm.get('password')?.valid ||userForm.get('password')?.untouched"
 						class="alert alert-warning">
@@ -69,20 +66,13 @@
 							password is required
 						</small>
 						<small *ngIf="userForm.get('password')?.errors?.['pattern']">
-							minimum eight capital or small charachters....
+							must put one capital letter in the first
+							and minimum seven small charachters....
 						</small>
 					</div>
 
-
-
-					<div class="text-center p-t-90">
-						<a class="txt1" href="/forgetPassword" id="forget">
-							Forgot your password?
-						</a>
-					</div>
-
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="button" (click)="login()">
+						<button class="login100-form-btn" type="submit" [disabled]="!userForm.valid">
 							SIGN IN
 						</button>
 					</div>
@@ -93,13 +83,6 @@
 		</div>
 	</div>
 
-
-	<!-- <div>
-		<div>
-			<hr>
-			<h2> {{ userForm.value | json}}</h2>
-		</div>
-	</div> -->
 
 
 

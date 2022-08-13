@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginformComponent } from './Compnents/compnents/loginform/loginform.component';
 import { RegisterformComponent } from './Compnents/compnents/registerform/registerform.component';
 import { SignoutComponent } from './Compnents/compnents/signout/signout.component';
+import { ContactformComponent } from './Compnents/compnents/contactform/contactform.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SignoutComponent } from './Compnents/compnents/signout/signout.componen
     LoginformComponent,
     RegisterformComponent,
     SignoutComponent,
+    ContactformComponent,
   ],
   imports: [
     BrowserModule,

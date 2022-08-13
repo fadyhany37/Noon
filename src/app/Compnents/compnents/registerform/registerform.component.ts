@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Iuser } from 'src/app/Models/iuser';
+import { UserService } from './../../../services/user.service';
 import { AuthservicesService } from 'src/app/services/authservices.service';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registerform',
@@ -9,55 +11,82 @@ import { AuthservicesService } from 'src/app/services/authservices.service';
   styleUrls: ['./registerform.component.scss']
 })
 export class RegisterformComponent implements OnInit {
-  @Input()user!: any;
-   userFormGroup:FormGroup
-   showPassword: boolean = false;
-  constructor(private fb: FormBuilder,private router: Router, private auth: AuthservicesService) {
-    
-    // this.userFormGroup=new FormGroup({
-    //   firstname:new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]{3,}$")]),
-    //   lastname:new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]{3,}$")]),
-    //   email:new FormControl('',[Validators.required,Validators.pattern("[a-z0-9]+@[a-zA-Z]+\.[a-z]{2,3}")]),
-    //   password:new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]{8,}$")])
-    // })
+  insertedUser: Iuser = {} as Iuser;
+  newSellerCode: number = 0;
+  userFormGroup: FormGroup;
+  showPassword: string = 'password';
+  eye: string = 'bi bi-eye-slash-fill';
+  myUsers: any = [];
+
+  constructor(
+    private fb: FormBuilder, private router: Router, private auth: AuthservicesService, private userService: UserService)
+     {
+    this.auth.getUsers().subscribe((users) => {
+      for (let user of users) {
+        this.myUsers.push({
+          id: user.payload.doc.id,
+          ...(user.payload.doc.data() as object),
+        });
+      }
+    });
+
+    this.userFormGroup = this.fb.group({
+      fullName: ['', [Validators.required, Validators.minLength(8)]],
+      mobile: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      image: ['', [Validators.required, Validators.pattern("/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{10,256}/")]], //https://w7.pngwing.com/pngs/831/88/png-transparent-user-profile-computer-icons-user-interface-mystique-miscellaneous-user-interface-design-smile-thumbnail.png
+      email: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9+_.-]+@gmail.com")]],
+      password: ['', [Validators.required, Validators.pattern("^[a-zA-Z]{8,}$")]],
+      repassword: ['', [Validators.required]],
+      type: ['']
+    });
+
+  }
 
 
-    this.userFormGroup= this.fb.group({
-      firstname:['',[Validators.required,Validators.pattern("^[a-zA-Z]{3,}$")] ],
-      lastname:['',[Validators.required,Validators.pattern("^[a-zA-Z]{3,}$")] ],
-      email:['', [Validators.required,Validators.pattern("[a-z0-9]+@[a-zA-Z]+\.[a-z]{2,3}")] ],
-      password:['', [Validators.required,Validators.pattern("^[a-zA-Z]{8,}$")] ],
-      type:['' ]
-    })
-   }
+  registration() {
+    this.insertedUser = this.userFormGroup.value;
+    const userExisit = this.myUsers.some((user: any) => user.email === this.insertedUser.email);
 
-   register()
-   {
-    // console.log("hi from register");
-    this.user = this.userFormGroup.value;
-    console.log(this.user);
-    this.auth.addRegister(this.user)
-    
-    if(this.user.type == 'seller')
-    {
-      this.router.navigate(['/dashboard'])
+    if (userExisit) {
+      alert('This user existed , please register with other email');
+      this.router.navigate(['/register']);
     }
-    this.resetForm();
 
-   }
-   
-   resetForm() {
-    this.userFormGroup.reset()
+    else {
+      for (let i = 1; i < 100; i++) {
+        if (!this.myUsers.some((user: any) => user.sellerCode === i)) {
+          this.newSellerCode = i;
+          break;
+        }
+      }
+
+      this.insertedUser = { ...this.insertedUser, sellerCode: this.newSellerCode };
+      this.auth.addUser(this.insertedUser);
+
+      if (this.insertedUser.userType == 'seller') {
+        localStorage.setItem('sellerCode', this.newSellerCode.toString());
+        localStorage.setItem('email', this.insertedUser.email);
+        this.router.navigate(['/Home']);
+      }
+      else {
+        localStorage.setItem('email', this.insertedUser.email);
+        this.router.navigate(['/Home']);
+      }
+    }
   }
 
 
-  
-
-  ngOnInit(): void {
+  toggle() {
+    if (this.showPassword == 'text') {
+      this.showPassword = 'password';
+      this.eye = 'bi bi-eye-slash-fill';
+    } else {
+      this.showPassword = 'text';
+      this.eye = 'bi bi-eye-fill';
+    }
   }
 
-  showHidePassword() {
-    this.showPassword = !this.showPassword;
-  }
+  ngOnInit(): void { }
 
 }

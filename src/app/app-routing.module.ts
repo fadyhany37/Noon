@@ -6,6 +6,7 @@ import { NotFoundComponent } from './Compnents/pages/not-found/not-found.compone
 import { LoginformComponent } from './Compnents/compnents/loginform/loginform.component';
 import { RegisterformComponent } from './Compnents/compnents/registerform/registerform.component';
 import { SignoutComponent } from './Compnents/compnents/signout/signout.component';
+import { ContactformComponent } from './Compnents/compnents/contactform/contactform.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'login' , component:LoginformComponent},
   {path:'logout' , component:SignoutComponent},
   {path:'register' , component:RegisterformComponent},
+  {path:'contact' , component:ContactformComponent},
   { path: 'Profile/:pId', component: ProfileComponent },
   { path: '**', component: NotFoundComponent },
 ];

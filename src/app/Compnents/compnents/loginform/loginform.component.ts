@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Iuser } from 'src/app/Models/iuser';
+import { UserService } from './../../../services/user.service';
 import { AuthservicesService } from 'src/app/services/authservices.service';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -10,56 +12,76 @@ import { AuthservicesService } from 'src/app/services/authservices.service';
   styleUrls: ['./loginform.component.scss']
 })
 export class LoginformComponent implements OnInit {
-
-  @Input() user!: any;
+  insertedUser: Iuser = {} as Iuser;
   userForm: FormGroup;
-  users:any = []
-  showPassword: boolean = false;
+  showPassword: string = 'password';
+  eye: string = 'bi bi-eye-slash-fill';
+  myUsers: any = [];
+  constructor(private userService: UserService, private fb: FormBuilder, private auth: AuthservicesService, private router: Router) {
+    this.auth.getUsers().subscribe((users) => {
+      for (let user of users) {
+        this.myUsers.push({
+          id: user.payload.doc.id,
+          ...(user.payload.doc.data() as object),
+        });
+      }
+    });
 
-  constructor(private auth: AuthservicesService, private router: Router) {
-    this.userForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.pattern("[a-z0-9]+@[a-zA-Z]+\.[a-z]{2,3}")]),
+    this.userForm = this.fb.group({
+      email: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z0-9+_.-]+@gmail.com")]),
       password: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z]{8,}$")])
-    })
-
-    this.users = auth.getUsers();
+    });
   }
 
   login() {
-    console.log("hi from login");
+    this.insertedUser = this.userForm.value;
+    const userExisit = this.myUsers.some((user: any) => user.email === this.insertedUser.email);
 
-    this.user = this.userForm.value;
-    // this.auth.addLogin(this.user)
-    // this.resetForm();
+    if (userExisit)
+     {
+      var foundeduser = this.myUsers.find(
+        (user: any) => user.email === this.insertedUser.email
+      );
+      
 
-   var flag = false;
-
-   for (const user of this.users[0]) {
-    
-     if (user.email == this.user.email && user.password == this.user.password) {
-       flag = true;
-     }
-   }
-
-    if (flag) {
-      this.router.navigate(['/Home'])
+            if (foundeduser.password === this.insertedUser.password)
+              {
+                    if (foundeduser.userType == 'seller')
+                    {
+                      localStorage.setItem('sellerCode', foundeduser.sellerCode.toString());
+                      localStorage.setItem('email', foundeduser.email);
+                      this.router.navigate(['/Home']);
+                    } 
+                    else
+                    {
+                      localStorage.setItem('email', foundeduser.email);
+                      this.router.navigate(['/Home']);
+                    }
+              }
+      
+            else
+            {
+              alert(' wrong email or password ');
+            }
     }
-    else {
-      alert(`This user dosn't exist , please register first`);
-      this.router.navigate(['/register'])
+
+     else
+    {
+      alert("This email dosn't exist");
+      this.router.navigate(['/register']);
     }
-  }
 
-  resetForm() {
-    this.userForm.reset()
   }
-
-  ngOnInit(): void {
-  }
-
-  showHidePassword() {
-    this.showPassword = !this.showPassword;
-  }
-
   
+  ngOnInit(): void { }
+
+  toggle() {
+    if (this.showPassword == 'text') {
+      this.showPassword = 'password';
+      this.eye = 'bi bi-eye-slash-fill';
+    } else {
+      this.showPassword = 'text';
+      this.eye = 'bi bi-eye-fill';
+    }
+  }
 }

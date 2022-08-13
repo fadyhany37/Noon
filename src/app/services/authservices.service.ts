@@ -1,101 +1,66 @@
+
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Iproduct } from '../Models/iproduct';
+import { Iuser } from '../Models/iuser';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthservicesService {
-  users: any = [];
+  constructor(private fireauth: AngularFirestore) {}
 
-  constructor(private fireauth: AngularFirestore) {
-
+  getproducts() {
+    return this.fireauth.collection('Products').snapshotChanges();
   }
 
-  //login//
   getUsers() {
-    var snapshot = this.fireauth.collection("users").valueChanges();
-    snapshot.subscribe((val) => this.users.push(val));
+    return this.fireauth.collection('users').snapshotChanges();
+  }
+
+  addproduct(product: any) {
+    this.fireauth.collection('Products').add(product);
+  }
+
+  addUser(user: any) {
+    this.fireauth.collection('users').add(user);
+  }
+
+  deleteproduct(pId: string) {
+    this.fireauth.collection('Products').doc(pId).delete();
+  }
+
+  deleteUser(uId: string) {
+    this.fireauth.collection('users').doc(uId).delete();
+  }
+
+  updateproduct(pId: string, product: Iproduct) {
+    this.fireauth.collection('Products').doc(pId).update(product);
+  }
+
+  updateUser(uId: string, user: Iuser) {
+    this.fireauth.collection('users').doc(uId).update(user);
+  }
+
+  getProductById(pId: string) {
+    return this.fireauth.collection('Products').doc(pId).snapshotChanges();
+  }
+
+  getUserById(uId: string) {
+    return this.fireauth.collection('users').doc(uId).snapshotChanges();
+  }
+
   
-    return this.users;
-  }
-
-  addLogin(user: any) {
-    this.fireauth.collection("users").add(user);
-  }
-
-  deleteLogin(userId: string) {
-
-    this.fireauth.collection("users").doc(userId).delete();
-  }
-
-  updateLogin(userId: string, user: any) {
-
-    this.fireauth.collection("users").doc(userId).set(user);
-  }
-
-  getUserById(userId: string) {
-    return this.fireauth.collection("users").doc(userId).snapshotChanges();
-  }
-
-
-  //register//
-  register() {
-    return this.fireauth.collection("users").snapshotChanges();
-  }
-
-  addRegister(user: any) {
-    this.fireauth.collection("users").add(user);
-  }
-
-  deleteregister(userId: string) {
-
-    this.fireauth.collection("users").doc(userId).delete();
-  }
-
-  updateregister(userId: string, user: any) {
-
-    this.fireauth.collection("users").doc(userId).set(user);
-  }
-
-  getUserRegisterById(userId: string) {
-    return this.fireauth.collection("users").doc(userId).snapshotChanges();
-  }
-
-
-  //signout//
-  // logout() 
-  // {
-  //   return this.fireauth.collection("users").snapshotChanges();
-  // }
-
-  // addlogout(user:any)
-  // {
-  //   this.fireauth.collection("users").add(user);
-  // }
-
-  // deletelogout(userId:string) {
-
-  //   this.fireauth.collection("users").doc(userId).delete();
-  // }
-
-  // updatelogout(userId:string,user:any) {
-
-  //   this.fireauth.collection("users").doc(userId).set(user);
-  // }
-
-  // getUserLogoutById(userId: string) {
-  //   return this.fireauth.collection("users").doc(userId).snapshotChanges();
-  // }
-
-
-
-  //forgot password//
-  // forgotpass(email:string)
-  // {
-  //   this.fireauth.
-  // }
-
 }
+
+
+
+
+
+
+
+
+
+
+
