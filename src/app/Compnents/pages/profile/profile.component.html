@@ -1,4 +1,4 @@
-<div class="profile w-100">
+<div *ngIf="sellerCode" class="profile w-100">
   <div class="info">
     <div class="container-fluid">
       <app-user-profile></app-user-profile>
@@ -10,7 +10,7 @@
   </div>
   <div class="userData w-100">
     <div *ngIf="adding">
-      <app-add-product [product]="product" [update]="update"></app-add-product>
+      <app-add-product [product]="product" [sellerCode]="sellerCode" [update]="update"></app-add-product>
     </div>
     <div class="w-100 my-5" *ngIf="!adding">
       <app-products-swiper
@@ -19,4 +19,7 @@
       ></app-products-swiper>
     </div>
   </div>
+</div>
+<div *ngIf="!sellerCode" class="w-100  vh-100 d-flex justify-content-center align-items-center">
+  <h2> OPPSS!! You must be seller to access this page....</h2>
 </div>

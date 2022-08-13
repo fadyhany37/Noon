@@ -11,14 +11,15 @@ import { ProductsdetailsComponent } from './Compnents/pages/productsdetails/prod
 import { CartComponent } from './Compnents/pages/cart/cart.component';
 
 import { UserProfileComponent } from './Compnents/pages/user-profile/user-profile.component';
+import { LoggedInGuard } from './logged-in.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
-  { path: 'Profile', component: ProfileComponent },
-  { path: 'userProfile', component: UserProfileComponent },
+  { path: 'Profile', component: ProfileComponent, canActivate:[LoggedInGuard] },
+  { path: 'userProfile', component: UserProfileComponent,canActivate:[LoggedInGuard]  },
   { path: 'updateUser', component: UpdateUserComponent },
-  { path: 'Profile/:pId', component: ProfileComponent },
+  { path: 'Profile/:pId', component: ProfileComponent,canActivate:[LoggedInGuard]  },
   { path: 'allproducts', component: AllproductsComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },

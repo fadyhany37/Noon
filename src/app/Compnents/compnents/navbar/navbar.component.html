@@ -116,7 +116,7 @@
 
     <div class="lowerNav">
       <nav class="navbar navbar-expand-lg p-0">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" [routerLink]="['/Home']">
           <img
             src="https://z.nooncdn.com/s/app/com/noon/design-system/logos/noon-logo-en.svg"
             alt="Noon"
@@ -166,9 +166,14 @@
             >
           </div>
 
-          <div class="nav-item sign d-flex">
-            <a class="nav-link" routerLink="register">{{
-              "Sign Up" | translate
+          <div *ngIf="!isLogged" class="nav-item sign d-flex">
+            <a class="nav-link" routerLink="/login">{{
+              "login" | translate
+            }}</a>
+          </div>
+          <div  *ngIf="isLogged" class="nav-item sign d-flex">
+            <a class="nav-link" (click)="logout()" routerLink="/Home">{{
+              "logout" | translate
             }}</a>
           </div>
           <div class="nav-item sign d-flex text-center">

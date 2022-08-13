@@ -81,10 +81,14 @@ export class LoginPageComponent implements OnInit {
           console.log('You are seller');
           localStorage.setItem('sellerCode', foundeduser.sellerCode.toString());
           localStorage.setItem('email', foundeduser.email);
+          ///fady
+          this.userService.isLoggedSubject.next(true);
+
           this.router.navigate(['/Home']);
         } else {
           console.log('You are buyer');
           localStorage.setItem('email', foundeduser.email);
+          this.userService.isLoggedSubject.next(true);
           this.router.navigate(['/Home']);
         }
       } else {

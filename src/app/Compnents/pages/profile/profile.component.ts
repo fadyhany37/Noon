@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   product: any = {};
 
   sellerProducts: any[] = [];
-  sellerCode: number = 4;
+  sellerCode!: any ;
 
   constructor(
     private _ProductsService: ProductsService,
@@ -24,9 +24,11 @@ export class ProfileComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
+    this.sellerCode = localStorage.getItem("sellerCode");
     this.adding = true;
   }
   ngOnInit(): void {
+
     this.activatedRoute.paramMap.subscribe((paramMap) => {
       this.IdRecived = paramMap.get('pId');
       if (this.IdRecived)

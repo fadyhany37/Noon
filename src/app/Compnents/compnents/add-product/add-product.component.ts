@@ -19,6 +19,7 @@ export class AddProductComponent implements OnInit, OnChanges {
   pId: string = '';
 
   @Input() product!: any;
+  @Input() sellerCode!:any;
 
   @Input() update: boolean = false;
   linkPattern = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{10,256}/;
@@ -90,14 +91,13 @@ export class AddProductComponent implements OnInit, OnChanges {
 
   addProduct(e: Event) {
     if (this.update) {
-      this.product = this.usrFormGroup.value;
+      this.product = { sellerCode:this.sellerCode,...this.usrFormGroup.value };
       this.fireStore.updateproduct(this.pId, this.product);
-
       alert(`${this.product.title} is updated`);
 
       this.router.navigate(['/Profile']);
     } else {
-      this.product = this.usrFormGroup.value;
+      this.product = {sellerCode:this.sellerCode,...this.usrFormGroup.value };
       this.fireStore.addproductToPending(this.product);
       alert(`${this.product.title} is added`);
       this.usrFormGroup.reset();
