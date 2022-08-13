@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 export class UserProfileComponent implements OnInit {
   user: any = {};
 
-  uId: any;
+  email: any;
   constructor(private fireStore: FirebaseService, private router: Router) {
-    this.uId = localStorage.getItem('userId');
+    this.email = localStorage.getItem('email');
     this.fireStore.getUsers().subscribe((users) => {
       let myusers: any = [];
       for (let user of users) {
@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
           ...(user.payload.doc.data() as object),
         });
       }
-      this.user = myusers.find((u: any) => u.id == this.uId);
+      this.user = myusers.find((u: any) => u.email == this.email);
     });
   }
 

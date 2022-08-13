@@ -2,7 +2,7 @@ export interface IUser {
   fullName: string;
   id?: any;
   sellerCode?: number;
-  type: string;
+  userType: string;
   image: string;
   email: string;
   mobileNo: number;

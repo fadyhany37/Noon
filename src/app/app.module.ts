@@ -21,8 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllproductsComponent } from 'src/app/Compnents/pages/allproducts/allproducts.component';
 import { ProductsdetailsComponent } from 'src/app/Compnents/pages/productsdetails/productsdetails.component';
 import { FilterPipe } from './filter.pipe';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { UserProfileComponent } from './Compnents/pages/user-profile/user-profile.component';
 import { UpdateUserComponent } from './Compnents/pages/update-user/update-user.component';
@@ -30,6 +30,8 @@ import { UpdateUserComponent } from './Compnents/pages/update-user/update-user.c
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './Compnents/pages/cart/cart.component';
 import { OrderSummryComponent } from './Compnents/pages/cart/order-summry/order-summry.component';
+import { LoginPageComponent } from './Compnents/pages/login-page/login-page.component';
+import { RegisterPageComponent } from './Compnents/pages/register-page/register-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,8 +52,9 @@ import { OrderSummryComponent } from './Compnents/pages/cart/order-summry/order-
     OrderSummryComponent,
     UserProfileComponent,
     UpdateUserComponent,
-    CartComponent
-
+    CartComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,11 +67,11 @@ import { OrderSummryComponent } from './Compnents/pages/cart/order-summry/order-
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-  })
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
