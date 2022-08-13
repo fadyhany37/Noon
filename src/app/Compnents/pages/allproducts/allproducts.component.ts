@@ -139,12 +139,21 @@ export class AllproductsComponent implements OnInit {
     this.ActiveRouter.paramMap.subscribe(paramMap => {
 
       this.productName = paramMap.get('productName');
+      let cat=paramMap.get('productCat');
       if (this.productName) {
         this.termSec = "";
        console.log("hii from params");
         this.ArrayOfProducts = this.AllProducts.getProductsByName(this.productName);
         console.log(this.ArrayOfProducts);
       }
+      else if (cat)
+      {
+        this.termSec = "";
+        console.log("hii from params");
+         this.ArrayOfProducts = this.AllProducts.getProductsByCategorey(cat);
+         console.log(this.ArrayOfProducts);
+
+        }
       else {
 
         this.ArrayOfProducts = this.AllProducts.getProductsByCategorey("all")

@@ -40,7 +40,7 @@
         </ul>
       </div>
     </div>
-  
+
 </nav>
 
 <!-- menu for All categories -->
@@ -62,8 +62,7 @@
    <h5>{{Categorey}}</h5>
    <hr>
     <li class="list-group-item text-black fw-bolder border-0">{{"Most popular" | translate}}</li>
-    <li class="list-group-item border-0 py-1" *ngFor="let cat of cats"> {{cat}}</li>
-
+    <li class="list-group-item border-0 py-1" *ngFor="let cat of cats" routerLink="/productsCat/{{cat}}"> {{cat}}</li>
 
   </ul>
   <ul class="col-4 details p-3">

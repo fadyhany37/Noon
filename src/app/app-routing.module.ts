@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'Profile/:pId', component: ProfileComponent },
   { path: 'allproducts', component: AllproductsComponent },
   { path: 'products/:productName', component: AllproductsComponent },
+  { path: 'productsCat/:productCat', component: AllproductsComponent },
   {path:'productsdetails/:productid',component:ProductsdetailsComponent},
   {path: 'cart',component:CartComponent},
   { path: '**', component: NotFoundComponent },

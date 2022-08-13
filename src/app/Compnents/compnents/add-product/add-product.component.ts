@@ -98,7 +98,7 @@ export class AddProductComponent implements OnInit, OnChanges {
       this.router.navigate(['/Profile']);
     } else {
       this.product = this.usrFormGroup.value;
-      this.fireStore.addproduct(this.product);
+      this.fireStore.addproductToPending(this.product);
       alert(`${this.product.title} is added`);
       this.usrFormGroup.reset();
     }

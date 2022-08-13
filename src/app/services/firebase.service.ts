@@ -20,6 +20,9 @@ export class FirebaseService {
   addproduct(product: any) {
     this.store.collection('Products').add(product);
   }
+  addproductToPending(product: any) {
+    this.store.collection('PendingProducts').add(product);
+  }
 
   addUser(user: any) {
     this.store.collection('users').add(user);
