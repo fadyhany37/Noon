@@ -32,6 +32,8 @@ import { CartComponent } from './Compnents/pages/cart/cart.component';
 import { OrderSummryComponent } from './Compnents/pages/cart/order-summry/order-summry.component';
 import { LoginPageComponent } from './Compnents/pages/login-page/login-page.component';
 import { RegisterPageComponent } from './Compnents/pages/register-page/register-page.component';
+
+import { NgxPayPalModule } from 'ngx-paypal';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +57,7 @@ import { RegisterPageComponent } from './Compnents/pages/register-page/register-
     CartComponent,
     LoginPageComponent,
     RegisterPageComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { RegisterPageComponent } from './Compnents/pages/register-page/register-
     AngularFirestoreModule,
     SwiperModule,
     ReactiveFormsModule,
+    NgxPayPalModule,
     HttpClientModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',

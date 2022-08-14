@@ -254,13 +254,24 @@ newpro: any = {};
 
 
   })
-
-
-
-
-
   }
-  addTocart(item:any){
-    this.cartService.addToCart(item);
+  
+
+   addToCart(item:any){
+    this.cartService.addToCart(item,this.quantity);
+  }
+  quantity:number = 1;
+  i=1;
+  plus(){
+    if(this.i !=10){
+      this.i ++;
+      this.quantity = this.i;
+    }
+  }
+  minus(){
+    if(this.i !=1){
+      this.i--;
+      this.quantity = this.i;
+    }
   }
 }

@@ -13,6 +13,7 @@ import { CartComponent } from './Compnents/pages/cart/cart.component';
 import { UserProfileComponent } from './Compnents/pages/user-profile/user-profile.component';
 import { LoggedInGuard } from './logged-in.guard';
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
@@ -27,7 +28,9 @@ const routes: Routes = [
   { path: 'productsCat/:productCat', component: AllproductsComponent },
   {path:'productsdetails/:productid',component:ProductsdetailsComponent},
   {path: 'cart',component:CartComponent},
+  
   { path: '**', component: NotFoundComponent },
+
 ];
 
 @NgModule({

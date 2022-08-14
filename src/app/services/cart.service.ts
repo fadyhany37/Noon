@@ -15,8 +15,8 @@ public productList = new BehaviorSubject<any>([]);
      this.cartItemList.push(...product);
      this.productList.next(product);
   }
-  addToCart(product:any){
-      this.cartItemList.push(product);
+  addToCart(product:any,qu:any){
+      this.cartItemList.push({quantity:qu,...product});
       this.productList.next(this.cartItemList)
       this.getTotalPrice();
       console.log(product);

@@ -28,7 +28,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getProduct()
     .subscribe(res=>{
-      this.totalItem=res.length;
+      for(let p of res)
+      {
+        this.totalItem+=p.quantity;
+      }
+     
     })
     this._UserService.loggedStatus;
   }

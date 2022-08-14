@@ -112,12 +112,13 @@
           <div>
              <h4 class="my-3">{{"Quantity" | translate}}</h4>
              <div class="hstack gap-3">
-
-                <span class="display-6 btn">{{newpro.stock}}</span>
+               <button type="button" (click)="minus()"><i class="fa fa-minus"></i></button>
+               <input type="text" [value]="quantity">
+               <button type="button" (click)="plus()"><i class="fa fa-plus"></i></button>
 
 
                 <div class="col-8 px-0">
-                  <button id="addToCart" class="btn badge ms-3 w-100 h-100" (click)="addTocart(newpro)">
+                  <button id="addToCart" class="btn badge ms-3 w-100 h-100" (click)="addToCart(newpro)">
                     {{"Add To Cart" | translate}}
                   </button>
                 </div>
