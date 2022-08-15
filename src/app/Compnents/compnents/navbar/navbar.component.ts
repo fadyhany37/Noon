@@ -14,31 +14,32 @@ export class NavbarComponent implements OnInit {
 
   currentLang: string = ""
   isLogged: boolean = false;
-  constructor(public translate: TranslateService,private router: Router,private cartService:CartService,private _UserService:UserService){
+  constructor(public translate: TranslateService, private router: Router, private cartService: CartService, private _UserService: UserService) {
     this.currentLang = localStorage.getItem('currentLang') || 'en'
     this.translate.use(this.currentLang)
 
-    this._UserService.loggedStatus().subscribe((stat)=>{
-      this.isLogged=stat;
-  })
+    this._UserService.loggedStatus().subscribe((stat) => {
+      this.isLogged = stat;
+    })
   }
-  public totalItem:number=0;
+  public totalItem: number = 0;
 
 
   ngOnInit(): void {
     this.cartService.getProduct()
-    .subscribe(res=>{
-      for(let p of res)
-      {
-        this.totalItem+=p.quantity;
-      }
-     
-    })
+      .subscribe(res => {
+        this.totalItem = 0;
+        for (let p of res) {
+
+          this.totalItem += p.quantity;
+        }
+
+      })
     this._UserService.loggedStatus;
   }
   onchange(e: any) {
 
-    this.router.navigate(['/products', e.target.value ]);
+    this.router.navigate(['/products', e.target.value]);
     console.log(e.target.value);
 
   }
@@ -46,13 +47,14 @@ export class NavbarComponent implements OnInit {
 
     let lang = e.target.innerText;
     e.target.innerText = (lang == "ar") ? 'en' : 'ar';
-    this.translate.use((lang=="ar")?'ar':'en');
-    localStorage.setItem("currentLang",(lang=="ar")?'ar':'en');
+    this.translate.use((lang == "ar") ? 'ar' : 'en');
+    localStorage.setItem("currentLang", (lang == "ar") ? 'ar' : 'en');
 
   }
-  logout(){
+  logout() {
     localStorage.clear();
     this._UserService.isLoggedSubject.next(false);
+    this.cartService.productList.next({})
 
   }
 

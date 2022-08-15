@@ -248,14 +248,14 @@ newpro: any = {};
     console.log(this.newpro);
     console.log(this.IdRecived);
 
-    this.newpro.forEach((a:any)=>{
-      Object.assign(a,{quantity:1,total:a.price})
-    })
+    // this.newpro.forEach((a:any)=>{
+    //   Object.assign(a,{quantity:1,total:a.price})
+    // })
 
 
   })
   }
-  
+
 
    addToCart(item:any){
     this.cartService.addToCart(item,this.quantity);
