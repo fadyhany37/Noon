@@ -43,6 +43,7 @@ export class CartService {
         this.cartItemList.splice(index, 1)
       }
     })
+    localStorage.setItem("cart", JSON.stringify(this.cartItemList))
     this.productList.next(this.cartItemList)
   }
 }
