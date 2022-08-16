@@ -29,7 +29,7 @@ import { UpdateUserComponent } from './Compnents/pages/update-user/update-user.c
 
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './Compnents/pages/cart/cart.component';
-import { OrderSummryComponent } from './Compnents/pages/cart/order-summry/order-summry.component';
+
 import { LoginPageComponent } from './Compnents/pages/login-page/login-page.component';
 import { RegisterPageComponent } from './Compnents/pages/register-page/register-page.component';
 
@@ -51,13 +51,12 @@ import { NgxPayPalModule } from 'ngx-paypal';
     AllproductsComponent,
     ProductsdetailsComponent,
     FilterPipe,
-    OrderSummryComponent,
     UserProfileComponent,
     UpdateUserComponent,
     CartComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    
+
   ],
   imports: [
     BrowserModule,

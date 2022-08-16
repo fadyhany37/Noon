@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { CartService } from 'src/app/services/cart.service';
 import { ICreateOrderRequest, IPayPalConfig, NgxPayPalModule } from 'ngx-paypal';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -12,16 +13,20 @@ export class CartComponent implements OnInit {
   public products: any = [];
   public totalQuantity: number = 0;
   public grandTotal: number = 0;
-  constructor(private cartService: CartService) {
+  showPayment: boolean=false;
+  constructor(private cartService: CartService,private _UserService:UserService) {
 
-
+    this._UserService.isLoggedSubject.subscribe(res => {
+      this.showPayment = res;
+})
   }
 
   ngOnInit(): void {
     this.cartService.getProduct()
       .subscribe(res => {
         this.products = res;
-
+        this.grandTotal = 0;
+        this.totalQuantity = 0;
         for (let p of res) {
           this.grandTotal += (p.quantity * p.price);
           this.totalQuantity += p.quantity;
@@ -98,5 +103,8 @@ export class CartComponent implements OnInit {
       }
     };
   }
+
+
+
 
 }

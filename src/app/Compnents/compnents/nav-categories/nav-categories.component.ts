@@ -104,6 +104,7 @@ export class NavCategoriesComponent implements OnInit {
   }
 
   showfun(): void {
+    
     this.show = false;
   }
 
@@ -167,6 +168,6 @@ export class NavCategoriesComponent implements OnInit {
 
   goTo(cat:any) {
 
-  
+
   }
 }

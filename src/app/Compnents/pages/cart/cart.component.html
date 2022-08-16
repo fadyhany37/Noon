@@ -129,13 +129,14 @@
                 <p class="mt-4">{{ "shipping" }}</p>
               </div>
               <div class="col-4">
-                <p class="mt-4">{{ grandTotal }}</p>
+                <p class="mt-4">{{grandTotal}} LE</p>
                 <p class="mt-4">{{ "Free" }}</p>
               </div>
             </div>
             <hr />
+            <h6 class="mx-auto  text-center" *ngIf="!showPayment">You must log in to check out <a [routerLink]="['/login']" class="text-primary" >Log in ?</a></h6>
 
-            <div class="row w-100">
+            <div *ngIf="showPayment" class="row w-100">
               <div class="col-12 text-center">
                 <div class="row mt-2 align-items-center">
                   <div class="col-md-12">

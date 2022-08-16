@@ -1,28 +1,28 @@
 
 *{
     box-sizing: border-box;
-  
+
   }
   .cartdiv{
       background-color: #fff;
   }
-  
+
   .header{
     background-color: #ddd;
     margin: 0;
-    
+
 
 }
 .cart{
     background-color: #eee;
     margin: 0;
-  
+
 }
-  
+
   .rightside{
       border: 1px solid rgba(198, 204, 221, 0.5);
   }
-  
+
   .navleft ul{
    list-style: none;
    background-color: transparent
@@ -30,7 +30,7 @@
   .navleft ul{
       list-style: none;
      }
-     
+
      .navleft li{
       margin-top: 25px;
       padding: 5px;
@@ -42,9 +42,9 @@
      .navleft li img{
       margin-right: 15px;
      }
-  
-  
-    
+
+
+
   .profile input ,.profile select{
       border: none;
      border-bottom:1px solid #777;
@@ -64,12 +64,12 @@
       font-weight: bold;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-  
+
     @media only screen and (max-width: 600px) {
       .navleft {
          width: 0px;
          display: none;
-         
+
          }
        .row{
          margin: auto;
@@ -78,16 +78,16 @@
           height: 50%;
           width: 50%;
         }
-     
+
     }
-  
+
     @media only screen and (min-width: 600px ) and ( max-width: 968px) {
       .navleft {
          width: 0px;
          display: none;
-          
+
           }
-   
+
           .row{
             margin: auto;
           }
@@ -111,7 +111,7 @@
     .close{
       font-weight: bold;
        font-size: 28px;
-       
+
     }
-   
-   
+
+  

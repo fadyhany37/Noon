@@ -22,7 +22,18 @@ export class CartService {
     this.productList.next(product);
   }
   addToCart(product: any, qu: any) {
-    this.cartItemList.push({ quantity: qu, ...product });
+    let found: boolean = false;
+    for (let pro of this.cartItemList)
+    {
+      if (pro.id == product.id) {
+        pro.quantity += qu;
+        found = true;
+      }
+    }
+    if (!found) {
+      this.cartItemList.push({ quantity: qu, ...product });
+
+    }
     localStorage.setItem("cart", JSON.stringify(this.cartItemList))
     this.productList.next(this.cartItemList)
     this.getTotalPrice();
