@@ -55,6 +55,7 @@ export class NavbarComponent implements OnInit {
 
     this._UserService.isLoggedSubject.next(false);
     localStorage.removeItem("email")
+    localStorage.removeItem("sellerCode")
 
 
   }

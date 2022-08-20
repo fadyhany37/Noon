@@ -109,10 +109,13 @@ export class RegisterPageComponent implements OnInit {
           break;
         }
       }
-      this.insertedUser = {
-        ...this.insertedUser,
-        sellerCode: this.newSellerCode,
-      };
+      
+      if (this.insertedUser.userType == 'seller') {
+        this.insertedUser = {
+          ...this.insertedUser,
+          sellerCode: this.newSellerCode,
+        };
+      }
       console.log(this.insertedUser);
       this.fireStore.addUser(this.insertedUser);
       console.log(this.myUsers);

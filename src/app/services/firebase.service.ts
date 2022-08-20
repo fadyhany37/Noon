@@ -40,7 +40,7 @@ export class FirebaseService {
     this.store.collection('Products').doc(pId).update(product);
   }
 
-  updateUser(uId: string, user: IUser) {
+    updateUser(uId: string, user: IUser) {
     this.store.collection('users').doc(uId).update(user);
   }
 

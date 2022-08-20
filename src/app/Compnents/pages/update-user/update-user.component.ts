@@ -102,7 +102,7 @@ export class UpdateUserComponent implements OnInit, OnChanges {
     this.updatedUser = this.usrFormGroup.value;
     console.log(this.updatedUser);
 
-    this.fireStore.updateUser(this.uEmail, this.updatedUser);
+    this.fireStore.updateUser(this.user.id, this.updatedUser);
 
     alert(`${this.user.fullName} is updated`);
 
